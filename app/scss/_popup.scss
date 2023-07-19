@@ -1,0 +1,246 @@
+.popup {
+	position: fixed;
+	left: 0; top: 0;
+	width: 100%; height: 100%;
+
+	display: flex;
+	align-items: center;
+
+	padding: 10px;
+
+	z-index: 100;
+
+	opacity: 0; visibility: hidden;
+	transition: opacity .4s ease, visibility .4s ease;
+
+	perspective: 400px;
+
+	&._transition-none {
+		transition: none;
+	}
+
+	&._transition-none &-body {
+		transition: none;
+	}
+
+	&._active._transition-none &-body {
+		transition: none;
+	}
+
+	will-change: opacity, visibility;
+
+	&._active {
+		opacity: 1; visibility: visible;
+	}
+
+	&._active &-body {
+		transform: translate3d(0,0,0);
+		transition: transform .2s ease;
+	}
+
+	&-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		min-height: 100%; width: 100%;
+
+		z-index: 2;
+	}
+	&-bg {
+		position: absolute;
+		left: 0; top: 0;
+		width: 100%; height: 100%;
+
+		background: rgba(0, 0, 0, 0.31);
+
+	}
+	&-body {
+		margin: auto;
+		position: relative;
+		background: white;
+		
+		overflow-y: auto;
+		max-height: calc(100vh - 30px);
+		max-width: 700px;
+		width: 100%;
+		border-radius: 14px;
+
+		z-index: 2;
+	}
+	&-close-btn {
+		position: absolute;
+		right: 15px; top: 15px;
+		line-height: 100%;
+		width: 40px; height: 40px;
+	  
+		& svg {
+		  width: 50%;
+		}
+
+		background: white;
+	}
+}
+
+.portfolio-project {
+
+	background: var(--theme, linear-gradient(219deg, rgba(52, 57, 60, 0.50) 34.38%, rgba(38, 19, 15, 0.50) 100%));
+	backdrop-filter: blur(25px);
+
+	padding: 30px 15px 20px;
+	@media (min-height: 850px) {
+		padding: 81px 15px 70px;		
+	}
+
+	// .portfolio-project__wrapper
+
+	&__wrapper {
+		flex-direction: column;
+		justify-content: stretch;
+		align-items: stretch;
+	}
+
+	// .portfolio-project__bg
+
+	&__bg {
+		
+	}
+
+	// .portfolio-project__body
+
+	&__body {
+		
+		background: transparent;
+		max-width: none;
+
+		padding: 0;
+
+		margin: 0 auto;
+		flex: 1 1 auto;
+
+		display: flex;
+		flex-direction: column;
+	}
+
+	// .portfolio-project__header
+
+	&__header {
+		margin: 0 auto;
+
+		border-radius: 30px;
+		background: rgba(0, 0, 0, 0.5);
+		background-blend-mode: color-burn;
+		backdrop-filter: blur(25px);
+		max-width: 1447px; width: 100%;
+
+		display: flex;
+		align-items: center;
+
+		padding: 15px 20px;
+		@media (min-width: 1200px) {
+			padding: 15px 60px;
+		}
+	}
+
+	// .portfolio-project__name
+
+	&__name {
+		flex: 1 1 auto;
+		color: var(--white);
+	}
+
+	// .portfolio-project__link
+
+	&__link {
+		&--btn {
+			display: inline-flex;
+			align-items: center;
+
+			margin-right: 20px;
+			@media (min-width: 1200px) {
+				margin-right: 52px;
+			}
+
+			white-space: none;
+
+			border: 1px solid rgba(255, 255, 255,0.3);
+			color: var(--white);
+
+			@media (prefers-color-scheme: dark) {
+				border: 1px solid #221F24;
+				color: var(--white);
+				&::before {
+					background: #1B1B1C;	
+				}
+			}
+			
+			position: relative;
+			border-radius: 100px;
+			padding: 5px 23px;
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0; top: 0;
+				width: 100%; height: 100%;
+				mix-blend-mode: soft-light;
+				background: rgba(217, 217, 217, 0.34);
+				border-radius: 100px;
+			}
+
+			svg {
+				fill: var(--white);
+				margin-left: 10px; margin-bottom: 5px;
+			}
+		}
+
+		&--open {
+			display: inline-flex;
+			align-items: center;
+
+			margin-top: 5px; margin-bottom: 5px;
+			margin-right: 20px;
+			@media (min-width: 1200px) {
+				margin-right: 52px;
+			}
+
+			white-space: none;
+			color: var(--accent-hover);
+			font-size: 0.9375rem;
+			font-weight: 500;
+			line-height: 100%;
+			letter-spacing: 0.45px;
+			svg {
+				margin-left: 15px; margin-bottom: 7px;
+				fill: var(--accent-hover);
+			}
+		}
+		
+	}
+
+	// .portfolio-project__close-btn
+
+	&__close-btn {
+		position: static;
+		background: transparent;
+		fill: #D9D9D9;
+	}
+
+	// .portfolio-project__image
+
+	&__image {
+		margin-top: 35px;
+		flex: 1 1 auto;
+		width: 100%;
+		position: relative;
+		img {
+			position: absolute;
+			left: 50%; top: 0;
+			transform: translate(-50%,0);
+			height: 100%; max-width: 100%;
+			width: auto;
+			border-radius: 30px;
+			object-fit: contain;
+		}
+	}
+}
+

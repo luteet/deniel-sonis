@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+
+	<svg class="visually-hidden">
+		<defs>
+			<linearGradient id="accent-gradient" x1="18.4774" y1="14.4309" x2="-1.31319" y2="15.8651" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#005BBB" />
+				<stop offset="1" stop-color="#6DB4FF" />
+			</linearGradient>
+			<linearGradient id="gray-gradient" x1="16" y1="27" x2="-0.999999" y2="15" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#C4C4C4" />
+				<stop offset="1" stop-opacity="0" />
+			</linearGradient>
+		</defs>
+	</svg>
+	<div class="wrapper">
+		<div class="page-background">
+			<picture>
+				<source srcset="img/page-background.avif" type="image/avif">
+				<source srcset="img/page-background.webp" type="image/webp">
+				<img src="img/page-background.png" alt="" width="0" height="0" loading="lazy">
+			</picture>
+		</div>
+		<aside class="aside">
+			<nav class="aside__nav">
+				<ul>
+					<li>
+						<a href="index.html" class="current" title="Link">
+							<img src="img/page-nav/page-nav-icon-1.svg" width="20" height="20" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="portfolio.html" title="Link">
+							<img src="img/page-nav/page-nav-icon-2.svg" width="20" height="20" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Link">
+							<img src="img/page-nav/page-nav-icon-3.svg" width="20" height="20" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Link">
+							<img src="img/page-nav/page-nav-icon-4.svg" width="20" height="20" alt="">
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<hr>
+			<div class="aside__social">
+				<ul>
+					<li>
+						<a href="#" title="Link">
+							<picture>
+								<source srcset="img/contacts/social-3.avif" type="image/avif">
+								<source srcset="img/contacts/social-3.webp" type="image/webp">
+								<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
+							</picture>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Link">
+							<picture>
+								<source srcset="img/contacts/social-3.avif" type="image/avif">
+								<source srcset="img/contacts/social-3.webp" type="image/webp">
+								<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
+							</picture>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Link">
+							<picture>
+								<source srcset="img/contacts/social-3.avif" type="image/avif">
+								<source srcset="img/contacts/social-3.webp" type="image/webp">
+								<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
+							</picture>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Link">
+							<picture>
+								<source srcset="img/contacts/social-3.avif" type="image/avif">
+								<source srcset="img/contacts/social-3.webp" type="image/webp">
+								<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
+							</picture>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<header class="header container _min">
+			<div class="header__wrapper">
+				<a href="index.html" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" width="197" height="36" loading="lazy" class="header__logo--img">
+					<img src="img/logo-dark.svg" alt="Logo" width="197" height="36" loading="lazy" class="header__logo--img">
+				</a>
+				<nav class="header__nav">
+					<div class="header__nav--body">
+						<ul class="header__nav--list">
+							<li>
+								<a href="#">
+									<svg width="21" height="20" viewBox="0 0 21 20">
+										<use xlink:href="img/sprites.svg#main"></use>
+									</svg>
+									Main
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg width="21" height="20" viewBox="0 0 21 20">
+										<use xlink:href="img/sprites.svg#portfolio"></use>
+									</svg>
+									Portfolio
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg width="21" height="20" viewBox="0 0 21 20">
+										<use xlink:href="img/sprites.svg#feedback"></use>
+									</svg>
+									Feedback
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg width="21" height="20" viewBox="0 0 21 20">
+										<use xlink:href="img/sprites.svg#tel"></use>
+									</svg>
+									Contacts
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg width="20" height="20" viewBox="0 0 20 20">
+										<use xlink:href="img/sprites.svg#login"></use>
+									</svg>
+									Login
+								</a>
+							</li>
+						</ul>
+						<div class="header__mob-lang">
+							<ul>
+								<li>
+									<a href="#" title="UA">
+										<span>ua</span>
+										<picture>
+											<source srcset="img/header/ua.avif" type="image/avif">
+											<source srcset="img/header/ua.webp" type="image/webp">
+											<img src="img/header/ua.png" alt="" width="15" height="15" loading="lazy">
+										</picture>
+									</a>
+								</li>
+								<li>
+									<a href="#" title="RUS">
+										<span>rus</span>
+										<picture>
+											<source srcset="img/header/ua.avif" type="image/avif">
+											<source srcset="img/header/ua.webp" type="image/webp">
+											<img src="img/header/ua.png" alt="" width="15" height="15" loading="lazy">
+										</picture>
+									</a>
+								</li>
+								<li>
+									<a href="#" title="ENG">
+										<span>eng</span>
+										<picture>
+											<source srcset="img/header/eng.avif" type="image/avif">
+											<source srcset="img/header/eng.webp" type="image/webp">
+											<img src="img/header/eng.png" alt="" width="15" height="15" loading="lazy">
+										</picture>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<div class="header__page-name hide-on-tablet">Main</div>
+				<div class="header__lang hide-on-tablet">
+					<button class="header__lang--target" type="button" title="UA">
+						<span>ua</span>
+						<picture>
+							<source srcset="img/header/ua.avif" type="image/avif">
+							<source srcset="img/header/ua.webp" type="image/webp">
+							<img src="img/header/ua.png" alt="" width="15" height="15" loading="lazy">
+						</picture>
+					</button>
+					<ul class="header__lang--list">
+						<li>
+							<a href="#" title="RUS">
+								<span>rus</span>
+								<picture>
+									<source srcset="img/header/ua.avif" type="image/avif">
+									<source srcset="img/header/ua.webp" type="image/webp">
+									<img src="img/header/ua.png" alt="" width="15" height="15" loading="lazy">
+								</picture>
+							</a>
+						</li>
+						<li>
+							<a href="#" title="ENG">
+								<span>eng</span>
+								<picture>
+									<source srcset="img/header/eng.avif" type="image/avif">
+									<source srcset="img/header/eng.webp" type="image/webp">
+									<img src="img/header/eng.png" alt="" width="15" height="15" loading="lazy">
+								</picture>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="header__login hide-on-tablet">
+					<a href="#" class="header__login--link">
+						login
+						<svg width="13" height="12" viewBox="0 0 13 12">
+							<use xlink:href="img/sprites.svg#login"></use>
+						</svg>
+					</a>
+				</div>
+				<button class="header__burger" type="button" aria-label="Menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</header>
+
+		<main class="main">
+			<section class="portfolio-page container">
+				<div class="portfolio-page__gallery swiper">
+					<div class="portfolio-page__gallery--header">
+						<div class="portfolio-page__gallery--breadcrumbs">
+							<a href="#">soniscode.com</a>
+							<span>/</span>
+							<a href="#">main</a>
+							<span>/</span>
+							<a href="#">category</a>
+							<span>/</span>
+							<a href="#">MobileApp</a>
+							<span>/</span>
+							<a href="#">Dota 2 Regal</a>
+						</div>
+						<time class="portfolio-page__gallery--date" datetime="05-05-2022">
+							6 may <span>/</span> 2022 year
+						</time>
+					</div>
+					<div class="portfolio-page__gallery--wrapper swiper-wrapper">
+						<div class="portfolio-page__gallery--slide portfolio-page__gallery-slide swiper-slide">
+							<div class="portfolio-page__gallery-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="1223" height="701" loading="lazy">
+								</picture>
+							</div>
+						</div>
+						<div class="portfolio-page__gallery--slide portfolio-page__gallery-slide swiper-slide">
+							<div class="portfolio-page__gallery-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="https://images.unsplash.com/photo-1661956603025-8310b2e3036d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="1223" height="701" loading="lazy">
+								</picture>
+							</div>
+						</div>
+						<div class="portfolio-page__gallery--slide portfolio-page__gallery-slide swiper-slide">
+							<div class="portfolio-page__gallery-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="1223" height="701" loading="lazy">
+								</picture>
+							</div>
+						</div>
+						<div class="portfolio-page__gallery--slide portfolio-page__gallery-slide swiper-slide">
+							<div class="portfolio-page__gallery-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="1223" height="701" loading="lazy">
+								</picture>
+							</div>
+						</div>
+						<div class="portfolio-page__gallery--slide portfolio-page__gallery-slide swiper-slide">
+							<div class="portfolio-page__gallery-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="1223" height="701" loading="lazy">
+								</picture>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portfolio-page__content">
+					<h1 class="portfolio-page__title">
+						Dota 2 Regal
+					</h1>
+					<ul class="portfolio-page__links">
+						<li>
+							<a href="#">
+								view
+								<svg width="17" height="17" viewBox="0 0 17 17">
+									<use xlink:href="img/sprites.svg#view"></use>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								live stream
+								<svg width="17" height="17" viewBox="0 0 17 17">
+									<use xlink:href="img/sprites.svg#view"></use>
+								</svg>
+							</a>
+						</li>
+					</ul>
+					<div class="portfolio-page__text">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</div>
+					<div class="portfolio-page__min-gallery swiper">
+						<div class="portfolio-page__min-gallery--wrapper swiper-wrapper">
+							<div class="portfolio-page__min-gallery--slide swiper-slide">
+								<div class="portfolio-page__min-gallery--image image-aspect-ratio">
+									<picture>
+										<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+										<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+										<img src="img/portfolio/portfolio-image.png" alt="" width="464" height="282" loading="lazy">
+									</picture>
+								</div>
+							</div>
+							<div class="portfolio-page__min-gallery--slide swiper-slide">
+								<div class="portfolio-page__min-gallery--image image-aspect-ratio">
+									<picture>
+										<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+										<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+										<img src="img/portfolio/portfolio-image.png" alt="" width="464" height="282" loading="lazy">
+									</picture>
+								</div>
+							</div>
+							<div class="portfolio-page__min-gallery--slide swiper-slide">
+								<div class="portfolio-page__min-gallery--image image-aspect-ratio">
+									<picture>
+										<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+										<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+										<img src="img/portfolio/portfolio-image.png" alt="" width="464" height="282" loading="lazy">
+									</picture>
+								</div>
+							</div>
+						</div>
+						<button class="portfolio-page__min-gallery--arrow swiper-button-prev">
+							<svg width="9" height="14" viewBox="0 0 9 14">
+								<use xlink:href="img/sprites.svg#slider-arrow-next"></use>
+							</svg>
+						</button>
+						<button class="portfolio-page__min-gallery--arrow swiper-button-next">
+							<svg width="9" height="14" viewBox="0 0 9 14">
+								<use xlink:href="img/sprites.svg#slider-arrow-next"></use>
+							</svg>
+						</button>
+					</div>
+				</div>
+				<div class="portfolio-page__gallery-nav swiper">
+					<div class="portfolio-page__gallery-nav--wrapper swiper-wrapper">
+						<div class="portfolio-page__gallery-nav--slide portfolio-page__gallery-nav-slide swiper-slide">
+							<div class="portfolio-page__gallery-nav-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="310" height="145" loading="lazy">
+								</picture>
+							</div>
+						</div>
+						<div class="portfolio-page__gallery-nav--slide portfolio-page__gallery-nav-slide swiper-slide">
+							<div class="portfolio-page__gallery-nav-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="310" height="145" loading="lazy">
+								</picture>
+							</div>
+						</div>
+						<div class="portfolio-page__gallery-nav--slide portfolio-page__gallery-nav-slide swiper-slide">
+							<div class="portfolio-page__gallery-nav-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="310" height="145" loading="lazy">
+								</picture>
+							</div>
+						</div>
+						<div class="portfolio-page__gallery-nav--slide portfolio-page__gallery-nav-slide swiper-slide">
+							<div class="portfolio-page__gallery-nav-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="310" height="145" loading="lazy">
+								</picture>
+							</div>
+						</div>
+						<div class="portfolio-page__gallery-nav--slide portfolio-page__gallery-nav-slide swiper-slide">
+							<div class="portfolio-page__gallery-nav-slide--image image-aspect-ratio">
+								<picture>
+									<source srcset="img/portfolio/portfolio-image.avif" type="image/avif">
+									<source srcset="img/portfolio/portfolio-image.webp" type="image/webp">
+									<img src="img/portfolio/portfolio-image.png" alt="" width="310" height="145" loading="lazy">
+								</picture>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portfolio-page__back">
+					<a href="#" class="portfolio-page__back--btn">
+						back to portfolio page
+						<svg width="17" height="17" viewBox="0 0 17 17">
+							<use xlink:href="img/sprites.svg#view"></use>
+						</svg>
+					</a>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer desktop-container">
+			<div class="footer__copy">
+				<svg width="15" height="17" viewBox="0 0 15 17">
+					<use xlink:href="img/sprites.svg#footer-copy"></use>
+				</svg>
+				<span>Copyright All rights reserved 2022</span>
+			</div>
+		</footer>
+	</div>
+
+	<div class="portfolio-project popup" id="portfolio-project-popup">
+		<div class="portfolio-project__wrapper popup-wrapper">
+			<div class="portfolio-project__bg popup-bg popup-close"></div>
+			<div class="portfolio-project__body popup-body">
+				<div class="portfolio-project__header">
+					<h2 class="portfolio-project__name">
+						<b>LIDER GROUP</b> / Online Shop “LIDER GROUP ”
+					</h2>
+					<div class="portfolio-project__link">
+						<a href="#" class="portfolio-project__link--btn">
+							Request to create a website
+							<svg width="10" height="12" viewBox="0 0 10 12">
+								<use xlink:href="img/sprites.svg#edit"></use>
+							</svg>
+						</a>
+						<a href="#" class="portfolio-project__link--open">
+							Open Link
+							<svg width="11" height="11" viewBox="0 0 11 11">
+								<use xlink:href="img/sprites.svg#open-link"></use>
+							</svg>
+						</a>
+					</div>
+					<button type="button" class="portfolio-project__close-btn popup-close-btn popup-close" title="Close popup">
+						<svg width="13" height="13" viewBox="0 0 13 13">
+							<use xlink:href="img/sprites.svg#close"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="portfolio-project__image">
+					<picture>
+						<source srcset="img/index/portfolio/portfolio-slide-1.avif" type="image/avif">
+						<source srcset="img/index/portfolio/portfolio-slide-1.webp" type="image/webp">
+						<img src="img/index/portfolio/portfolio-slide-1.jpg" alt="" width="1447" height="820" loading="lazy">
+					</picture>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/libs.min.js"></script>
+	<script src="js/main.min.js"></script>
+
+</body>
+
+</html>

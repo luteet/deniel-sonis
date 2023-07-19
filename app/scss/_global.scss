@@ -1,0 +1,242 @@
+@use 'sass:math';
+
+:root {
+	--title-font: 'Mersad', sans-serif;
+	--main-font: 'Mersad', sans-serif;
+	
+	--accent: #539FEF;
+	--accent-hover: #6DB4FF;
+	--accent-active: #5081FF;
+
+	--white: #FFF;
+	--black: #000;
+	--dark-gray: #3A3A3A;
+	--dark-gray-2: #212121;
+	--text-color: #212121;
+	--text-color-dark: #212121;
+
+	--container-padding: 44px;
+
+	--accent-gradient: linear-gradient(227deg, #005BBB 0%, #6DB4FF 100%);
+}
+
+:root {
+	@media (prefers-color-scheme: dark) {
+		--text-color: #E4E4E4;
+	}
+}
+
+html, body {
+	font-size: 16px;
+	min-height: 100%;
+	min-width: 320px;
+	background: #DBE2FF;
+	@media (prefers-color-scheme: dark) {
+		background: #000;
+	}
+}
+
+body {
+
+	font-family: var(--main-font);
+	font-weight: 400;
+	line-height: 150%;
+
+	display: flex;
+	flex-direction: column;
+
+	color: #212121;
+	@media (prefers-color-scheme: dark) {
+		color: var(--white);
+	}
+
+	padding-right: var(--popup-padding);
+
+	&._mob-menu-active {
+		overflow: hidden;
+	}
+
+	&._popup-active {
+		overflow: hidden;
+	}
+	
+}
+
+a {
+	color: var(--accent);
+}
+
+.image-aspect-ratio {
+	width: 100%; position: relative;
+	padding-top: var(--padding-aspect-ratio);
+}
+
+.image-aspect-ratio img {
+	position: absolute;
+	left: 0; top: 0;
+	width: 100%; height: 100%;
+	object-fit: cover;
+}
+
+section {
+	position: relative;
+	z-index: 2;
+}
+
+.wrapper {
+	flex: 1 1 auto;
+	position: relative;
+
+	display: grid;
+	@include _992 {
+		grid-template-columns: 10px auto;
+	}
+}
+
+.main {
+	overflow: hidden;
+
+	@include _992 {
+		grid-column: 2; grid-row: 2;
+	}
+}
+
+.header {
+	@include _992 {
+		grid-column: 2; grid-row: 1;
+	}
+}
+
+.footer {
+	@include _992 {
+		grid-column: 2 span;
+	}
+}
+
+.aside {
+	@include _992 {
+		grid-column: 1; grid-row: 2 span;
+	}
+}
+
+.drag-icon {
+	position: absolute;
+	left: 50%; top: 50%;
+	transform: translate(-50%,0%);
+	width: 65px; height: 65px;
+	border-radius: 50%;
+	background: radial-gradient(61.93% 61.93% at 50.00% 50.00%, rgba(255, 255, 255, 0.521) 0%, rgba(80, 129, 255, 0.00) 100%);
+	background-blend-mode: luminosity;
+	z-index: 2;
+	fill: var(--white);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+
+	transition: opacity .3s ease, visibility .3s ease;
+	opacity: 1; visibility: visible;
+}
+
+.container {
+	
+	padding-left: 40px;
+	padding-right: 40px;
+	&._min {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	@include _992 {
+		padding-left: calc(var(--container-padding) + 85px);
+		padding-right: var(--container-padding);
+		&._min {
+			padding-left: calc(var(--container-padding) + 85px);
+			padding-right: var(--container-padding);
+		}
+	}
+	
+}
+
+.desktop-container {
+	@include _992 {
+		padding-left: calc(var(--container-padding) + 85px);
+		padding-right: var(--container-padding);
+	}
+}
+
+.swiper.drag-active .drag-icon {
+	opacity: 0; visibility: hidden;
+}
+
+.page-background {
+	position: absolute;
+	left: 0; top: 0;
+	width: 100%; height: 100vh;
+	background: #DBE2FF linear-gradient(180deg, #DBE2FF 0%, #DBE2FF 40%, #DBE2FF 70%);
+	-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 30%);
+	@media (prefers-color-scheme: dark) {
+		background: #141414 linear-gradient(180deg, #0e0b0c 0%, #0D1215 40%, #000 70%);
+		-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 10%);
+	}
+	//background-blend-mode: color-burn;
+	user-select: none; pointer-events: none;
+	z-index: 1;
+	img {
+		position: absolute;
+		left: 0; top: 0;
+		width: 100%; height: 100%;
+		object-fit: cover;
+		opacity: .7;
+	}
+}
+
+.btn {
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	
+	padding: 7px 15px;
+
+	background: var(--accent);
+	color: var(--white);
+
+	border-radius: 15px;
+
+	transition: background .3s ease;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px; height: 1px;
+	margin: -1px; padding: 0;
+	border: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+.visible-on-tablet {
+	@include _992 {
+		display: none;
+	}
+}
+
+.hide-on-tablet {
+	@media (max-width: 991px) {
+		display: none;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.visible-on-light {
+		display: none;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.visible-on-dark {
+		display: none;
+	}
+}

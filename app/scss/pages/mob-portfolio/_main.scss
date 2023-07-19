@@ -1,0 +1,149 @@
+.mob-portfolio {
+
+	margin-top: 25px;
+	@include _992 {
+		display: none;
+	}
+
+	// .mob-portfolio__body
+
+	&__body {
+		background: linear-gradient(180deg, rgba(179, 179, 179, 0.2) 0%, rgba(255, 255, 255, 0.00) 100%);
+		@media (prefers-color-scheme: dark) {
+			background: linear-gradient(180deg, rgba(56, 56, 56, 0.2) 0%, rgba(255, 255, 255, 0.00) 100%);
+		}
+		background-blend-mode: soft-light;
+		backdrop-filter: blur(12.5px);
+
+		display: flex;
+		flex-direction: column;
+		border-radius: 15px;
+
+		
+	}
+
+	// .mob-portfolio__header
+
+	&__header {
+		background: rgba(255, 255, 255, 0.9);
+		@media (prefers-color-scheme: dark) {
+			background: rgba(87, 87, 87, 0.05);
+		}
+		backdrop-filter: blur(1px);
+
+		padding: 10px;
+		border-radius: 100px;
+	}
+
+	// .mob-portfolio__name
+
+	&__name {
+		color: #212121;
+		@media (prefers-color-scheme: dark) {
+			color: #E4E4E4;
+		}
+		font-size: 0.75rem;
+		line-height: 100%;
+		text-align: center;
+	}
+
+	// .mob-portfolio__slider
+
+	&__slider {
+
+		width: calc(100% + 40px);
+		margin: 0px -20px 0;
+		height: 92.307692vw;
+		padding-bottom: 40%;
+
+		-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 50%);
+
+		// .mob-portfolio__slider--wrapper
+
+		&--wrapper {
+			flex-direction: column;
+		}
+
+		// .mob-portfolio__slider--slide
+
+		&--slide {
+			height: auto;
+		}
+
+		&--drag-icon {
+			top: 25%;
+		}
+	}
+
+	// .mob-portfolio__slide
+
+	&__slide {
+
+		// .mob-portfolio__slide--image
+
+		&--image {
+		}
+	}
+
+	// .mob-portfolio__text
+
+	&__text {
+		padding-top: 40px;
+
+		color: #212121;
+		@media (prefers-color-scheme: dark) {
+			color: #E4E4E4;
+		}
+		font-size: 0.75rem;
+		font-weight: 400;
+		line-height: 100%;
+		max-width: 79%;
+		margin: 0 auto;
+	}
+
+	// .mob-portfolio__open-link
+
+	&__open-link {
+		margin: 46px auto 0;
+		display: inline-flex;
+		align-items: center;
+	
+		white-space: none;
+		color: var(--accent-hover);
+		font-size: 0.9375rem;
+		font-weight: 500;
+		line-height: 100%;
+		letter-spacing: 0.45px;
+		svg {
+			margin-left: 15px; margin-bottom: 5px;
+			fill: var(--accent-hover);
+		}
+	}
+
+	// .mob-portfolio__btn
+
+	&__btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		margin-top: 20px;
+
+		white-space: none;
+		color: #212121;
+		@media (prefers-color-scheme: dark) {
+			color: var(--white);
+		}
+		position: relative;
+		border-radius: 100px;
+		padding: 11px 23px;
+
+		svg {
+			fill: #212121;
+			@media (prefers-color-scheme: dark) {
+				fill: var(--white);
+			}
+			margin-left: 10px; margin-bottom: 5px;
+		}
+	}
+}

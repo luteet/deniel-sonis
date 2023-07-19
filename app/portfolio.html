@@ -1,0 +1,99 @@
+@@include("html/_header.html")
+
+	<main class="main">
+		<section class="portfolio container">
+			<h2 class="visually-hidden">
+				Portfolio
+			</h2>
+			<div class="portfolio__categories swiper">
+				<div class="portfolio__categories--slider swiper">
+					<div class="portfolio__categories--wrapper swiper-wrapper">
+						<div class="portfolio__categories--slide portfolio__category swiper-slide">
+							<a href="#" class="portfolio__category--link">
+								Landing
+							</a>
+						</div>
+						<div class="portfolio__categories--slide portfolio__category swiper-slide">
+							<a href="#" class="portfolio__category--link _current">
+								Web Application
+							</a>
+						</div>
+						<div class="portfolio__categories--slide portfolio__category swiper-slide">
+							<a href="#" class="portfolio__category--link">
+								Corporate
+							</a>
+						</div>
+						<div class="portfolio__categories--slide portfolio__category swiper-slide">
+							<a href="#" class="portfolio__category--link">
+								Landing
+							</a>
+						</div>
+						<div class="portfolio__categories--slide portfolio__category swiper-slide">
+							<a href="#" class="portfolio__category--link">
+								Landing
+							</a>
+						</div>
+						<div class="portfolio__categories--slide portfolio__category swiper-slide">
+							<a href="#" class="portfolio__category--link">
+								Landing
+							</a>
+						</div>
+						<div class="portfolio__categories--slide portfolio__category swiper-slide">
+							<a href="#" class="portfolio__category--link">
+								Landing
+							</a>
+						</div>
+						<div class="portfolio__categories--slide portfolio__category swiper-slide">
+							<a href="#" class="portfolio__category--link">
+								Landing
+							</a>
+						</div>
+					</div>
+				</div>
+				<button class="portfolio__categories--arrow swiper-button-next">
+					<svg width="9" height="14" viewBox="0 0 9 14">
+						<use xlink:href="img/sprites.svg#slider-arrow-next"></use>
+					</svg>
+				</button>
+				<button class="portfolio__categories--arrow swiper-button-prev">
+					<svg width="9" height="14" viewBox="0 0 9 14">
+						<use xlink:href="img/sprites.svg#slider-arrow-next"></use>
+					</svg>
+				</button>
+			</div>
+			<div class="portfolio__block">
+				<ul class="portfolio__list">
+					@@loop("html/_portfolio-card.html", [
+	
+						{},
+						{},
+						{},
+						
+						{},
+						{},
+						{},
+	
+						{},
+						{},
+						{},
+	
+					])
+				</ul>
+				<button type="button" class="portfolio__loadmore">
+					view more
+					<svg width="17" height="17" viewBox="0 0 17 17">
+						<use xlink:href="img/sprites.svg#view"></use>
+					</svg>
+				</button>
+				<script>
+					const loadmoreBtn = document.querySelector('.portfolio__loadmore');
+					loadmoreBtn.addEventListener('click', function () {
+						const portfolioList = document.querySelector('.portfolio__list');	
+						portfolioList.classList.add('_loaded');
+					})
+				</script>
+			</div>
+		</section>
+	</main>
+
+@@include("html/_footer.html")

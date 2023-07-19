@@ -1,0 +1,361 @@
+.portfolio {
+
+	padding-bottom: 100px;
+
+	// .portfolio__categories
+
+	&__categories {
+
+		display: none;
+		
+		@include _992 {
+			display: block;
+			max-width: 1206px;
+			margin: 20px auto 0;
+			padding: 0 30px;
+		}
+
+		&.hide-arrows &--arrow {
+			display: none;
+		}
+
+		// .portfolio__categories--wrapper
+
+		&--wrapper {
+		}
+
+		// .portfolio__categories--slide
+
+		&--slide {
+			display: inline-block;
+			width: auto;
+
+			margin: 0 30px;
+		}
+
+		&--arrow {
+			&::after {
+				display: none;
+			}
+
+			width: 30px; height: 30px;
+			border-radius: 50%;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			background: rgba(255, 255, 255, 0.8);
+			@media (prefers-color-scheme: dark) {
+				background: rgba(224, 224, 224, 0.158);
+			}
+			background-blend-mode: soft-light;
+			backdrop-filter: blur(1px);
+
+			transition: opacity .3s ease;
+
+			svg {
+				fill: var(--accent-active);
+				width: 9px; height: 14px;
+			}
+
+			top: auto; bottom: 0;
+
+			&.swiper-button-prev {
+				left: 0;
+				svg {
+					transform: scale(-1);
+				}
+			}
+
+			&.swiper-button-next {
+				right: 0;
+			}
+		}
+	}
+
+	// .portfolio__category
+
+	&__category {
+
+		padding-bottom: 10px;
+
+		// .portfolio__category--link
+
+		&--link {
+			display: block;
+			position: relative;
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0; bottom: 0;
+				width: 100%; height: 5px;
+				background: #999bb6;
+				opacity: .2;
+			}
+			&._current::before {
+				background: var(--accent-active);
+				opacity: 1;
+			}
+
+			padding: 19px 37.5px;
+			color: #212121;
+			@media (prefers-color-scheme: dark) {
+				color: #E4E4E4;
+			}
+			
+			font-size: 1.25rem;
+			font-weight: 500;
+			line-height: 150%;
+		}
+	}
+
+	// .portfolio__list
+
+	&__list {
+		margin-top: 25px;
+
+		height: max(30vh, 400px);
+
+		display: grid;
+		grid-template-columns: 100%;
+
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 100%);
+		background-blend-mode: soft-light;
+		backdrop-filter: blur(12.5px);
+
+		border-radius: 15px;
+
+		@include _992 {
+			margin-top: 2.708333vw;
+
+			gap: 20px 40px;
+			grid-template-columns: 1fr 1fr;
+
+			padding-left: 34px;
+
+			height: max(50vh, 700px);
+
+			background: transparent;
+			backdrop-filter: none;
+		}
+
+		@media (min-width: 1200px) {
+			gap: 2.708333vw 8.177083vw;
+		}
+
+		@media (min-width: 1550px) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		&._loaded {
+			height: auto;
+		}
+		
+	}
+
+	&__list._loaded + &__loadmore {
+		display: none;
+	}
+
+	// .portfolio__card
+
+	&__list:not(._loaded) &__card:nth-child(n + 4) {
+		opacity: .5;
+	}
+
+	&__card {
+
+		transition: opacity .3s ease;		
+
+		// .portfolio__card--header
+
+		&--header {
+			border-radius: 100px;
+			background: linear-gradient(90deg, rgba(136, 136, 136, 0.1) 0%, rgba(255, 255, 255, 0.00) 100%);
+			background-blend-mode: soft-light;
+			backdrop-filter: blur(35px);
+
+			padding: 0 0 0 20px;
+			min-height: 30px;
+
+			@include _992 {
+				padding: 5px 20px 0 20px;
+				min-height: 46px;
+			}
+
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		// .portfolio__card--name
+
+		&--name {
+			color: var(--text-color);
+			font-size: 0.75rem;
+			
+			@include _768 {
+				font-size: 1rem;
+			}
+			
+			@include _992 {
+				font-size: 1.25rem;
+			}
+			font-weight: 500;
+			line-height: 150%;
+		}
+
+		// .portfolio__card--view
+
+		&--view {
+			display: inline-flex;
+			align-items: center;
+			min-height: 100%;
+
+			padding: 8px 30px;
+
+			color: var(--text-color);
+			font-size: 0.75rem;
+			font-weight: 400;
+			line-height: 120%;
+
+			border-radius: 30px;
+			background: linear-gradient(90deg, rgba(168, 168, 168, 0.5) 0%, rgba(255, 255, 255, 0.50) 100%);
+			@media (prefers-color-scheme: dark) {
+				background: linear-gradient(90deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.10) 100%);
+			}
+			background-blend-mode: soft-light;
+			backdrop-filter: blur(35px);
+
+			picture {
+				display: flex;
+				margin-bottom: 2px; margin-left: 10px;
+			}
+
+			img {
+				border-radius: 50%;
+				box-shadow: 0 0 5px 0 var(--shadow-color);
+			}
+		}
+
+		// .portfolio__card--image
+
+		&--image {
+			display: none;
+			@include _992 {
+				display: block;
+				margin-top: 25px;
+
+				img {
+					border-radius: 1.5625vw;
+					opacity: .5;
+				}
+			}
+		}
+
+		// .portfolio__card--text
+
+		&--text {
+			
+
+			color: var(--text-color);
+			font-size: 0.75rem;
+			font-weight: 400;
+			line-height: 120%;
+
+			padding: 20px;
+			
+			@include _768 {
+				font-size: 1rem;
+			}
+			
+			@include _992 {
+				padding: 0;
+				margin-top: 30px;
+				font-size: 1.25rem;
+			}
+		}
+
+		// .portfolio__card--footer
+
+		&--footer {
+			margin-top: 30px;
+		}
+
+		// .portfolio__card--link
+
+		&--link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			border-radius: 30px;
+			background: rgba(212, 212, 212, 0.5);
+			@media (prefers-color-scheme: dark) {
+				background: linear-gradient(90deg, rgba(59, 57, 78, 0.1) 0%, rgba(56, 64, 77, 0.2) 100%);
+			}
+			background-blend-mode: soft-light;
+			backdrop-filter: blur(35px);
+
+			padding: 13px;
+			color: var(--text-color);
+			font-size: 0.9375rem;
+			line-height: 125%;
+
+			img {
+				margin-left: 15px;
+				border-radius: 50%;
+
+				box-shadow: 0 0 5px 0px var(--shadow-color);
+			}
+		}
+	}
+
+	&__block {
+		position: relative;
+	}
+
+	&__loadmore {
+		position: absolute;
+		left: 50%; bottom: 0;
+		transform: translate(-50%,0);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		white-space: nowrap;
+		svg {
+			flex: 0 0 12px;
+		}
+
+		max-width: 182px;
+		width: 100%;
+
+		padding: 12px 20px;
+		@include _768 {
+			padding: 12px 41px;
+		}
+
+		border-radius: 30px;
+		background: #DBE2FF;
+		backdrop-filter: blur(35px);
+
+		color: var(--text-color-dark);
+		fill: var(--text-color-dark);
+
+		transition: opacity .3s ease;
+		&:hover {
+			opacity: 0.8;
+		}
+		
+		&:active {
+			opacity: 0.6;
+		}
+
+		svg {
+			margin-left: 10px;
+		}
+	}
+}

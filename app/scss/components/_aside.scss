@@ -1,0 +1,132 @@
+.aside {
+
+	position: sticky;
+	left: 44px; top: 0;
+	z-index: 5;
+	width: 60px; max-height: calc(var(--svh,1vh)*100); //height: calc(var(--svh) * 100 - 100px);
+	padding: 30px 0 71px;
+
+	display: none;
+	align-items: center;
+	flex-direction: column;
+
+	@include _992 {
+		display: flex;
+	}
+
+	// .aside__nav
+
+	&__nav {
+		
+		ul {
+			display: flex;
+			flex-direction: column;
+		}
+
+		li:first-child a {
+			border-top: 1px solid #858894;
+			@media (prefers-color-scheme: dark) {
+				border-top: 1px solid var(--dark-gray-2);
+			}
+
+			border-radius: 5px 5px 0 0;
+		}
+
+		li:last-child a {
+			border-radius: 0 0 5px 5px;
+		}
+
+		/* li:last-child a {
+			border-bottom: 1px solid var(--dark-gray-2);
+		} */
+
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 60px; height: 75px;
+
+			border-left: 1px solid #858894;
+			border-right: 1px solid #858894;
+			border-bottom: 1px solid #858894;
+
+			@media (prefers-color-scheme: dark) {
+				border-left: 1px solid var(--dark-gray-2);
+				border-right: 1px solid var(--dark-gray-2);
+				border-bottom: 1px solid var(--dark-gray-2);
+			}
+
+			position: relative;
+
+			&.current {
+				&::before {
+					content: '';
+					position: absolute;
+					left: -1px; top: 50%;
+					transform: translate(0,-50%);
+					width: 1px; height: calc(100% - 10px);
+					background: var(--accent-gradient);
+				}
+			}
+			
+			
+		}
+	}
+
+	hr {
+		width: 1px; flex: 1 1 auto;
+		margin: 30px 0;
+		background: #858894;
+		@media (prefers-color-scheme: dark) {
+			background: var(--dark-gray-2);
+		}
+	}
+
+	// .aside__social
+
+	&__social {
+
+		ul {
+			display: flex;
+			flex-direction: column;
+		}
+
+		li:first-child a {
+			border-top: 1px solid #858894;
+			@media (prefers-color-scheme: dark) {
+				border-top: 1px solid var(--dark-gray-2);
+			}
+
+			border-radius: 5px 5px 0 0;
+		}
+
+		li:last-child a {
+			border-radius: 0 0 5px 5px;
+		}
+
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 60px; height: 75px;
+
+			border-left: 1px solid #858894;
+			border-right: 1px solid #858894;
+			border-bottom: 1px solid #858894;
+
+			img {
+				filter: invert(30%);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				border-left: 1px solid var(--dark-gray-2);
+				border-right: 1px solid var(--dark-gray-2);
+				border-bottom: 1px solid var(--dark-gray-2);
+			}
+
+			position: relative;
+		}
+	}
+}
