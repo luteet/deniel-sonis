@@ -107,6 +107,10 @@ const headerNavList = document.querySelector('.header__lang--list'), aside = doc
 
 let portfolioMinGallery, contactsBlock;
 
+setTimeout(() => {
+	html.style.setProperty('--wrapper-height', wrapper2.offsetHeight + 'px');
+},0)
+
 function resize() {
 
 	html.style.setProperty("--height-header", header.offsetHeight + "px");
@@ -122,10 +126,6 @@ function resize() {
 		const headerLang = headerNavList.parentElement;
 		headerLang.style.setProperty('--list-size', headerNavList.offsetHeight + 'px');
 	}
-
-	
-
-	
 
 	windowSize = window.innerWidth;
 
