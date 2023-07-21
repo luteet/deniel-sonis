@@ -1,0 +1,93 @@
+.not-found {
+
+	text-align: center;
+
+	padding-bottom: 90px;
+	@include _992 {
+		padding-top: 25px;
+	}
+
+	&__body {
+		margin: 25px 0 0;
+		background: linear-gradient(180deg, rgba(179, 179, 179, 0.2) 0%, rgba(255, 255, 255, 0.00) 100%);
+		@media (prefers-color-scheme: dark) {
+			background: linear-gradient(180deg, rgba(56, 56, 56, 0.2) 0%, rgba(255, 255, 255, 0.00) 100%);
+		}
+		padding: 32px 30px;
+		border-radius: 30px;
+		@include _992 {
+			padding: 0;
+			margin: 0;
+			border-radius: 0;
+			background: transparent !important;
+		}
+	}
+
+	// .not-found__title
+
+	&__title {
+		font-size: 1.5rem;
+
+		@include _550 {
+			font-size: 2.5rem;
+		}
+		
+		@include _768 {
+			font-size: 5rem;
+		}
+		
+		@include _992 {
+			font-size: 7.5rem;
+		}
+		font-weight: 700;
+		line-height: 100%;
+	}
+
+	// .not-found__message
+
+	&__message {
+		font-size: 0.75rem;
+
+		@include _550 {
+			font-size: 1rem;
+		}
+		
+		@include _768 {
+			font-size: 2rem;
+		}
+		
+		@include _992 {
+			font-size: 3rem;
+			margin-top: 0;
+		}
+
+		margin-top: 8px;
+
+		font-weight: 400;
+		line-height: 100%;
+	}
+
+	// .not-found__image
+
+	&__image {
+		img {
+			max-width: 100%;
+			object-fit: contain;
+		}
+	}
+
+	// .not-found__note
+
+	&__note {
+		font-size: 0.75rem;
+		line-height: 125%;
+		padding: 0 20px;
+	}
+
+	// .not-found__btn
+
+	&__btn {
+		margin-top: 43px;
+		max-width: 422px; width: 100%;
+	}
+}

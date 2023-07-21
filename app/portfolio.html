@@ -5,7 +5,7 @@
 			<h2 class="visually-hidden">
 				Portfolio
 			</h2>
-			<div class="portfolio__categories swiper">
+			<div class="portfolio__categories swiper" data-aos="fade-in" data-aos-delay="200">
 				<div class="portfolio__categories--slider swiper">
 					<div class="portfolio__categories--wrapper swiper-wrapper">
 						<div class="portfolio__categories--slide portfolio__category swiper-slide">
@@ -87,13 +87,24 @@
 				</button>
 				<script>
 					const loadmoreBtn = document.querySelector('.portfolio__loadmore');
+					const wrapper = document.querySelector('.wrapper')
+					wrapper.classList.add('footer-shadow');
 					loadmoreBtn.addEventListener('click', function () {
-						const portfolioList = document.querySelector('.portfolio__list');	
+						const portfolioList = document.querySelector('.portfolio__list');
 						portfolioList.classList.add('_loaded');
+						wrapper.classList.remove('footer-shadow');
 					})
 				</script>
 			</div>
 		</section>
+		<div class="alert-message-list">
+			<div class="alert-message">
+				Ваш запрос уже отправлен
+				<svg width="20" height="20" viewBox="0 0 20 20">
+					<use xlink:href="img/sprites.svg#danger"></use>
+				</svg>
+			</div>
+		</div>
 	</main>
 
 @@include("html/_footer.html")

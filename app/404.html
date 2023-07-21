@@ -1,0 +1,48 @@
+@@include("html/_header.html")
+
+	<main class="main">
+		<section class="not-found container">
+			<div class="not-found__body">
+				<h1 class="not-found__title">
+					404
+				</h1>
+				<h2 class="not-found__message">
+					seems you've got the wrong place
+				</h2>
+				<div class="not-found__image visible-on-tablet">
+					<picture>
+						<source srcset="img/not-found/404.avif" type="image/avif">
+						<source srcset="img/not-found/404.webp" type="image/webp">
+						<img src="img/not-found/404.png" alt="" width="269" height="269" loading="lazy">
+					</picture>
+				</div>
+				<div class="not-found__note visible-on-tablet">
+					<p>
+						there is nothing interesting here,
+						but you can always:
+					</p>
+				</div>
+				<a href="#" class="not-found__btn btn">
+					Open Main Page
+				</a>
+			</div>
+		</section>
+		<div class="cookies-message">
+			<div class="cookies-message__body">
+				<div class="cookies-message__text">
+					<p>
+						We use essential cookies to make our site work. With your consent, we may also use non-essential cookies to improve user experience and analyze website traffic. By clicking “Accept,“ you agree to our website's cookie use as described in our Cookie Policy. You can change your cookie settings at any time by clicking “Preferences.”
+					</p>
+				</div>
+				<div class="cookies-message__preferences">
+					<b>Preferences</b>
+					<span>/</span>
+					<a href="#">Decline</a>
+					<span>/</span>
+					<a href="#">Accept</a>
+				</div>
+			</div>
+		</div>
+	</main>
+
+@@include("html/_footer.html")

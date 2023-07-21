@@ -1,9 +1,10 @@
 
 .header {
 
-	position: static;
+	position: relative;
 	left: 0; top: 0;
 	width: 100%;
+	z-index: 2;
 
 	margin-top: 10px;
 
@@ -58,6 +59,9 @@
 	&__logo {
 
 		display: grid;
+		@include _992 {
+			min-width: 250px;
+		}
 
 		// .header__logo--img
 
@@ -81,9 +85,9 @@
 
 	&__nav {
 
-		position: absolute;
+		position: fixed;
 		left: 0; top: calc(var(--height-header) + 10px);
-		width: 100%; height: calc(var(--vh) * 100 - var(--height-header));
+		width: 100%; height: calc(var(--vh) * 100 - var(--height-header) - 10px);
 		min-width: 320px;
 
 		background: rgba(219, 233, 252, 0.55);
@@ -270,7 +274,8 @@
 			position: absolute;
 			left: 0; top: 0;
 			width: 100%; height: calc(100% + var(--list-size));
-			background: rgba(255, 255, 255, 0.766);
+			background: rgba(255, 255, 255, 0.9);
+			backdrop-filter: blur(2px);
 			@media (prefers-color-scheme: dark) {
 				background: linear-gradient(180.06deg, #181E2A 0.05%, rgba(25, 30, 41, 0.39) 105.88%);
 			}

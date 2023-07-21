@@ -45,7 +45,7 @@ body.addEventListener('click', function (event) {
 
 
 
-	// =-=-=-=-=-=-=-=-=-=-=-=- <click> -=-=-=-=-=-=-=-=-=-=-=-=
+	// =-=-=-=-=-=-=-=-=-=-=-=- <header-lang> -=-=-=-=-=-=-=-=-=-=-=-=
 	
 	const headerLangTarget = $(".header__lang--target")
 	if(headerLangTarget) {
@@ -56,7 +56,26 @@ body.addEventListener('click', function (event) {
 		if(document.querySelector('.header__lang._active')) document.querySelector('.header__lang._active').classList.remove('_active')
 	}
 	
-	// =-=-=-=-=-=-=-=-=-=-=-=- </click> -=-=-=-=-=-=-=-=-=-=-=-=
+	// =-=-=-=-=-=-=-=-=-=-=-=- </header-lang> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+	// =-=-=-=-=-=-=-=-=-=-=-=- <coockies-message-preferences> -=-=-=-=-=-=-=-=-=-=-=-=
+	
+	const cookiesMessagePreferencesLink = $(".cookies-message__preferences a")
+	if(cookiesMessagePreferencesLink) {
+	
+		event.preventDefault();
+		const cookieMessage = cookiesMessagePreferencesLink.closest('.cookies-message');
+
+		cookieMessage.classList.add('_hidden');
+		setTimeout(() => {
+			cookieMessage.remove();
+		},1000)
+	
+	}
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=- </coockies-message-preferences> -=-=-=-=-=-=-=-=-=-=-=-=
 
 	
 	
@@ -69,14 +88,32 @@ body.addEventListener('click', function (event) {
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <resize> -=-=-=-=-=-=-=-=-=-=-=-=
 
-let windowSize = 0;
+let resizeCheck = {}, windowSize = 0;
+const wrapper2 = document.querySelector('.wrapper')
 
-const headerNavList = document.querySelector('.header__lang--list');
+function resizeCheckFunc(size, minWidth, maxWidth) {
+	if (windowSize <= size && (resizeCheck[String(size)] == true || resizeCheck[String(size)] == undefined) && resizeCheck[String(size)] != false) {
+		resizeCheck[String(size)] = false;
+		maxWidth(); // < size
+	}
+
+	if (windowSize >= size && (resizeCheck[String(size)] == false || resizeCheck[String(size)] == undefined) && resizeCheck[String(size)] != true) {
+		resizeCheck[String(size)] = true;
+		minWidth(); // > size
+	}
+}
+
+const headerNavList = document.querySelector('.header__lang--list'), aside = document.querySelector('.aside');
+
+let portfolioMinGallery, contactsBlock;
 
 function resize() {
 
 	html.style.setProperty("--height-header", header.offsetHeight + "px");
 	html.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
+	html.style.setProperty('--wrapper-height', wrapper2.offsetHeight + 'px');
+
+	
 	if(windowSize != window.innerWidth) {
 		html.style.setProperty("--svh", window.innerHeight * 0.01 + "px");
 	}
@@ -85,8 +122,91 @@ function resize() {
 		const headerLang = headerNavList.parentElement;
 		headerLang.style.setProperty('--list-size', headerNavList.offsetHeight + 'px');
 	}
+
 	
+
+	
+
 	windowSize = window.innerWidth;
+
+	resizeCheckFunc(992,
+	function () {  // screen > 992px
+
+		if(document.querySelector('.portfolio-page__min-gallery')) {
+	
+			if(portfolioMinGallery) portfolioMinGallery.destroy(true,true)
+			portfolioMinGallery = new Swiper('.portfolio-page__min-gallery', {
+				speed: 500,
+				effect: "fade",
+				navigation: {
+					nextEl: ".portfolio-page__min-gallery--arrow.swiper-button-next",
+					prevEl: ".portfolio-page__min-gallery--arrow.swiper-button-prev",
+				},
+				on: {
+					init: function () {
+						setTimeout(() => {
+							if(portfolioMinGallery.isEnd) {
+								document.querySelector('.portfolio-page__min-gallery').classList.add('hide-arrows');
+							}
+						},300)
+					}
+				}
+			})
+
+		}
+
+		if(document.querySelector('.contacts__block')) {
+
+			contactsBlock = new Swiper('.contacts__block', {
+				slidesPerView: "auto"
+			})
+		
+		}
+
+	},
+	function () {  // screen < 992px
+
+		if(document.querySelector('.portfolio-page__min-gallery')) {
+
+			if(portfolioMinGallery) portfolioMinGallery.destroy(true,true)
+			portfolioMinGallery = new Swiper('.portfolio-page__min-gallery', {
+				speed: 500,
+				effect: 'coverflow',
+				slidesPerView: 'auto',
+				direction: "vertical",
+				centeredSlides: true,
+				on: {
+					init: function () {
+						setTimeout(() => {
+							if(portfolioMinGallery.isEnd) {
+								document.querySelector('.portfolio-page__min-gallery').classList.add('hide-arrows');
+							}
+						},300)
+					}
+				},
+				coverflowEffect: {
+					rotate: 0,
+					scale: 1,
+					stretch: 40,
+					depth: 100,
+					modifier: 3,
+					slideShadows: false,
+				},
+			})
+
+		}
+
+		if(document.querySelector('.contacts__block')) {
+
+			if(contactsBlock) {
+				contactsBlock.destroy(true, true)				
+			}
+		
+		}
+
+	});
+	
+	
 	
 }
 
@@ -235,34 +355,29 @@ if(document.querySelector('.portfolio-page__gallery') && document.querySelector(
 		speed: 500,
 		effect: "fade",
 		watchSlidesProgress: true,
-		thumbs: {
-			swiper: portfolioGalleryNav
-		}
-	})
-
-}
-
-if(document.querySelector('.portfolio-page__min-gallery')) {
-
-	const portfolioMinGallery = new Swiper('.portfolio-page__min-gallery', {
-		speed: 500,
-		effect: "fade",
-		navigation: {
-			nextEl: ".portfolio-page__min-gallery--arrow.swiper-button-next",
-			prevEl: ".portfolio-page__min-gallery--arrow.swiper-button-prev",
-		},
 		on: {
+			activeIndexChange: function () {
+				setTimeout(() => {
+					portfolioGallery.el.classList.add('drag-active');
+				},500)
+			},
 			init: function () {
 				setTimeout(() => {
-					if(portfolioMinGallery.isEnd) {
-						document.querySelector('.portfolio-page__min-gallery').classList.add('hide-arrows');
+					if(portfolioGallery['slides'].length <= 1) {
+						portfolioGallery.el.classList.add('drag-active');
 					}
 				},300)
 			}
 		},
+		thumbs: {
+			swiper: portfolioGalleryNav
+		},
+
 	})
 
 }
+
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -308,6 +423,9 @@ function Popup(arg) {
 							popup.classList.add('_active');
 							function openFunc() {
 								popupCheck = true;
+								setTimeout(() => {
+									popup.classList.add('_active-end');
+								},0)
 								popup.removeEventListener('transitionend', openFunc);
 							}
 							popup.addEventListener('transitionend', openFunc)
@@ -317,7 +435,7 @@ function Popup(arg) {
 							popupCheck = true;
 						}
 
-					}, 0)
+					}, 100)
 				}
 
 			} else {
@@ -342,6 +460,7 @@ function Popup(arg) {
 			setTimeout(() => {
 				popup.classList.remove('_active');
 				function closeFunc() {
+					popup.classList.remove('_active-end');
 					const activePopups = document.querySelectorAll('.popup._active');
 
 					if (activePopups.length < 1) {
@@ -415,13 +534,14 @@ popup.init()
 // =-=-=-=-=-=-=-=-=-=-=-=- </popup> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
-/* 
+
 // =-=-=-=-=-=-=-=-=-=-=-=- <animation> -=-=-=-=-=-=-=-=-=-=-=-=
 
 AOS.init({
 	disable: "mobile",
+	once: true,
 });
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </animation> -=-=-=-=-=-=-=-=-=-=-=-=
 
-*/
+

@@ -1,0 +1,50 @@
+@@include("html/_header.html")
+
+	<main class="main">
+		<section class="contacts-form container">
+			<form method="post" class="contacts-form__body">
+				<div class="contacts-form__header">
+					<h2 class="contacts-form__title">
+						Requers Contact Form
+					</h2>
+				</div>
+				<div class="contacts-form__block">
+					<label>
+						<input type="text" name="name" placeholder="Name:" required>
+					</label>
+					<label>
+						<input type="email" name="email" placeholder="Email:" required>
+					</label>
+					<label>
+						<textarea name="message" rows="7" placeholder="Enter your message:"></textarea>
+					</label>
+					<button type="submit">
+						Send Request
+					</button>
+				</div>
+				<div class="contacts-form__footer">
+					<h3>
+						Personal contacts:
+					</h3>
+					<ul>
+						<li>
+							<a href="#">
+								Email: example@example.com
+							</a>
+						</li>
+						<li>
+							<a href="#">LinkTree: example.lt/</a>
+						</li>
+						<li>
+							<a href="#">Office: Example ave. 69</a>
+						</li>
+						<li>
+							<a href="#">Adress: Example ave. 96 </a>
+						</li>
+					</ul>
+				</div>
+			</form>
+		</section>
+	</main>
+
+@@include("html/_footer.html")

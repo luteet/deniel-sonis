@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "@splidejs/splide": "^4.1.4",
+    "aos": "^2.3.4",
     "browser-sync": "^2.26.13",
     "del": "^6.0.0",
     "gsap": "^3.12.2",

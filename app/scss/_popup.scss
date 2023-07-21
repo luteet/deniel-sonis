@@ -13,7 +13,7 @@
 	opacity: 0; visibility: hidden;
 	transition: opacity .4s ease, visibility .4s ease;
 
-	perspective: 400px;
+	//perspective: 400px;
 
 	&._transition-none {
 		transition: none;
@@ -27,16 +27,21 @@
 		transition: none;
 	}
 
-	will-change: opacity, visibility;
+	//will-change: opacity, visibility;
 
 	&._active {
-		opacity: 1; visibility: visible;
+		visibility: visible;
+		opacity: 1;
 	}
 
-	&._active &-body {
+	&._active-end {
+		
+	}
+
+	/* &._active &-body {
 		transform: translate3d(0,0,0);
 		transition: transform .2s ease;
-	}
+	} */
 
 	&-wrapper {
 		display: flex;
@@ -244,3 +249,377 @@
 	}
 }
 
+.contacts-popup {
+
+	z-index: 6;
+	@media (max-width: 991px) {
+		display: none;
+	}
+
+	/* &::before {
+		content: '';
+		position: absolute;
+		left: 0; top: 0;
+		width: 100%; height: 100%;
+
+		backdrop-filter: blur(5px);
+	} */
+
+	/* &._active-end::before {
+		backdrop-filter: blur(5px);
+	} */
+
+	/* &._active {
+		opacity: 1;
+	} */
+
+	
+
+	&._active-end & {
+		&__header {
+			opacity: 1;
+			backdrop-filter: blur(25px);
+		}
+		&__form {
+			opacity: 1;
+			backdrop-filter: blur(25px);
+		}
+	}
+
+	background: rgba(0, 0, 0, 0);
+
+	// .contacts-popup__wrapper
+
+	&__wrapper {
+		
+	}
+
+	// .contacts-popup__bg
+
+	&__bg {
+		opacity: 0;
+	}
+
+	// .contacts-popup__body
+
+	&__body {
+		max-width: 1447px;
+		background: transparent;
+	}
+
+	// .contacts-popup__header
+
+	&__header {
+		margin: 0 auto;
+
+		border-radius: 30px;
+		
+		//background: rgba(255, 0, 0, 0.5);
+		//mix-blend-mode: normal;
+		/* z-index: 2;
+		position: relative; */
+		/* &::before {
+			content: '';
+			position: absolute;
+			left: 0; top: 0;
+			width: 100%; height: 100%;
+			z-index: -1;
+			border-radius: 30px;
+			background: #000;
+		} */
+		@media (prefers-color-scheme: dark) {
+			background: rgba(217, 217, 217, 0.05);
+		}
+		background: rgba(255, 255, 255, 0.3);
+		background-blend-mode: color-burn;
+		backdrop-filter: blur(0px);
+		max-width: 1447px; width: 100%;
+
+		
+		opacity: 0;
+		transition: opacity .5s ease, backdrop-filter .5s ease;
+
+		display: flex;
+		align-items: center;
+
+		padding: 15px 20px;
+		@media (min-width: 1200px) {
+			padding: 15px 40px 15px 60px;
+		}
+	}
+
+	// .contacts-popup__name
+
+	&__name {
+		font-size: 0.9375rem;
+		font-weight: 700;
+		line-height: normal;
+		line-height: 100%;
+	}
+
+	// .contacts-popup__social
+
+	&__social {
+		flex: 1 1 auto;
+
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+
+		margin-right: 20px;
+
+		h3 {
+			margin-right: 50px;
+			font-size: 0.9375rem;
+			line-height: 125%;
+			margin-top: 5px;
+		}
+
+		ul {
+			display: flex;
+		}
+
+		li {
+			&:not(:last-child) {
+				margin-right: 20px;
+			}
+		}
+
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 32px; height: 32px;
+
+			border-radius: 50%;
+			background: #f7f5ff;
+			@media (prefers-color-scheme: dark) {
+				background: rgba(219, 226, 255, 0.15);
+				&:hover {
+					background: rgba(219, 226, 255, 0.2);
+				}
+				
+				&:active {
+					background: rgba(219, 226, 255, 0.05);
+				}
+			}
+			transition: background .2s ease;
+			&:hover {
+				background: rgba(247, 245, 255, 0.8);
+			}
+			
+			&:active {
+				background: rgba(247, 245, 255, 0.7);
+			}
+
+			picture {
+				display: flex;
+			}
+
+			img {
+				object-fit: contain;
+			}
+		}
+	}
+
+	// .contacts-popup__close-btn
+
+	&__close-btn {
+		width: 30px; height: 30px;
+		position: static;
+		margin-left: 20px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		background: transparent;
+		fill: var(--dark-gray-2);
+	}
+
+	// .contacts-popup__form
+
+	&__form {
+		margin-top: 35px;
+
+		@media (prefers-color-scheme: dark) {
+			background: rgba(217, 217, 217, 0.05);
+		}
+		background: rgba(255, 255, 255, 0.5);
+		background-blend-mode: color-burn;
+		backdrop-filter: blur(0px);
+
+		opacity: 0;
+		transition: opacity .5s ease, backdrop-filter .5s ease;
+		
+		border-radius: 30px;
+
+		@include _992 {
+			display: grid;
+			grid-template-columns: 35% auto;
+		}
+
+		padding: 48px 62px 32px;
+	}
+
+	// .contacts-popup__col
+
+	&__col {
+	}
+
+	// .contacts-popup__personal-contacts
+
+	&__personal-contacts {
+		display: flex;
+		flex-direction: column;
+
+		h3 {
+			color: rgba(33, 33, 33, 0.75);
+			@media (prefers-color-scheme: dark) {
+				color: rgba(228, 228, 228, 0.75);
+			}
+			font-size: 1.25rem;
+			font-weight: 700;
+			line-height: normal;
+			padding-right: 30px;
+		}
+
+		ul {
+			margin-top: 40px;
+		}
+
+		li, a {
+			color: rgba(33, 33, 33, 0.75);
+			@media (prefers-color-scheme: dark) {
+				color: rgba(228, 228, 228, 0.75);
+			}
+			font-size: 1.25rem;
+			font-weight: 400;
+			line-height: normal;
+		}
+
+		li:not(:first-child) {
+			margin-top: 20px;
+		}
+
+		
+	}
+
+	// .contacts-popup__form-block
+
+	&__form-block {
+		padding: 42px 48px;
+
+		border-radius: 30px;
+		@media (prefers-color-scheme: dark) {
+			background: rgba(0, 0, 0, 0.25);
+		}
+		background: rgba(196, 206, 229, 0.4);
+		background-blend-mode: soft-light;
+
+		display: flex;
+		flex-direction: column;
+
+		label {
+			width: 100%;
+			&:not(:first-child) {
+				margin-top: 40px;
+			}
+		}
+
+		input, textarea {
+			width: 100%;
+			border-radius: 30px;
+			background: rgba(147, 161, 197, 0.3);
+			@media (prefers-color-scheme: dark) {
+				background: rgba(255, 255, 255, 0.05);
+			}
+			background-blend-mode: soft-light;
+
+			padding: 17px 23px;
+
+			font-size: 0.9375rem;
+			line-height: 100%;
+			color: var(--text-color);
+			&::placeholder {
+				color: var(--text-color);
+			}
+		}
+
+		textarea {
+			resize: none;
+			min-height: 302px;
+			padding: 25px 23px;
+		}
+
+		button[type="submit"] {
+			align-self: self-start;
+			margin-top: 40px;
+
+			padding: 25px 35px;
+
+			background: var(--accent-active);
+			font-size: 0.9375rem;
+			font-weight: 500;
+			border-radius: 100px;
+			color: #E4E4E4;
+
+			transition: opacity .3s ease;
+			&:hover {
+				opacity: .8;
+			}
+			
+			&:active {
+				opacity: .7;
+			}
+		}
+	}
+
+	// .contacts-popup__footer
+
+	&__footer {
+		grid-column: 2 span;
+
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		padding-top: 41px;
+
+		h3 {
+			color: rgba(33, 33, 33, 0.75);
+			@media (prefers-color-scheme: dark) {
+				color: rgba(228, 228, 228, 0.75);
+			}
+			font-size: 1.25rem;
+			font-weight: 700;
+			line-height: normal;
+			padding-right: 30px;
+		}
+
+		a {
+			color: rgba(33, 33, 33, 0.75);
+			@media (prefers-color-scheme: dark) {
+				color: rgba(228, 228, 228, 0.75);
+			}
+			font-size: 1.25rem;
+			font-weight: 400;
+			line-height: normal;
+
+			&:not(:last-child) {
+				margin-right: 20px;
+			}
+		}
+
+		span {
+			color: var(--accent-active);
+			font-size: 1.25rem;
+			font-weight: 700;
+			line-height: normal;
+			padding-right: 20px;
+		}
+		
+	}
+}

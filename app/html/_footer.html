@@ -6,6 +6,7 @@
 				<span>Copyright All rights reserved 2022</span>
 			</div>
 		</footer>
+		
 	</div>
 
 	<div class="portfolio-project popup" id="portfolio-project-popup">
@@ -47,8 +48,141 @@
 		</div>
 	</div>
 
+	<div class="contacts-popup popup" id="contacts-popup">
+		<div class="contacts-popup__wrapper popup-wrapper">
+			<div class="contacts-popup__bg popup-bg popup-close"></div>
+			<div class="contacts-popup__body popup-body">
+				<div class="contacts-popup__header">
+					<h2 class="contacts-popup__name">
+						Requers Contact Form
+					</h2>
+					<div class="contacts-popup__social">
+						<h3>Contacts :</h3>
+						<ul>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/gmail.avif" type="image/avif">
+										<source srcset="img/popup-contacts/gmail.webp" type="image/webp">
+										<img src="img/popup-contacts/gmail.png" alt="" width="14" height="10" loading="lazy">
+									</picture>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/facebook.avif" type="image/avif">
+										<source srcset="img/popup-contacts/facebook.webp" type="image/webp">
+										<img src="img/popup-contacts/facebook.png" alt="" width="16" height="14" loading="lazy">
+									</picture>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/linkedIn.avif" type="image/avif">
+										<source srcset="img/popup-contacts/linkedIn.webp" type="image/webp">
+										<img src="img/popup-contacts/linkedIn.png" alt="" width="16" height="14" loading="lazy">
+									</picture>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/fiverr.avif" type="image/avif">
+										<source srcset="img/popup-contacts/fiverr.webp" type="image/webp">
+										<img src="img/popup-contacts/fiverr.png" alt="" width="16" height="14" loading="lazy">
+									</picture>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/freelancehunt.avif" type="image/avif">
+										<source srcset="img/popup-contacts/freelancehunt.webp" type="image/webp">
+										<img src="img/popup-contacts/freelancehunt.png" alt="" width="16" height="14" loading="lazy">
+									</picture>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="contacts-popup__close-btn popup-close-btn popup-close" title="Close popup">
+						<svg width="13" height="13" viewBox="0 0 13 13">
+							<use xlink:href="img/sprites.svg#close"></use>
+						</svg>
+					</button>
+				</div>
+				<form method="post" class="contacts-popup__form">
+					<div class="contacts-popup__col">
+						<div class="contacts-popup__personal-contacts">
+							<h3>
+								Personal contacts:
+							</h3>
+							<ul>
+								<li>
+									Email: example@example.com
+								</li>
+								<li>
+									LinkTree: example.lt/
+								</li>
+								<li>
+									Office: Example ave. 69
+								</li>
+								<li>
+									Adress: Example ave. 96
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="contacts-popup__col">
+						<div class="contacts-popup__form-block">
+							<label>
+								<input type="text" name="name" placeholder="Name:" required>
+							</label>
+							<label>
+								<input type="email" name="email" placeholder="Email:" required>
+							</label>
+							<label>
+								<textarea name="message" rows="7" placeholder="Enter your message:"></textarea>
+							</label>
+							<button type="submit">
+								Send Request
+							</button>
+						</div>
+					</div>
+					<div class="contacts-popup__footer">
+						<h3>
+							Personal contacts:
+						</h3>
+						<a href="#">
+							Email: example@example.com
+						</a>
+						<span>
+							/
+						</span>
+						<a href="#">
+							LinkTree: example.lt/
+						</a>
+						<span>
+							/
+						</span>
+						<a href="#">
+							Office: Example ave. 69
+						</a>
+						<span>
+							/
+						</span>
+						<a href="#">
+							Adress: Example ave. 96 
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
 	<script src="js/libs.min.js"></script>
-	<script src="js/main.min.js"></script>
+	<script src="js/main.js"></script>
 
 </body>
 </html>

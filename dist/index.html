@@ -30,7 +30,7 @@
 				<img src="img/page-background.png" alt="" width="0" height="0" loading="lazy">
 			</picture>
 		</div>
-		<aside class="aside">
+		<aside class="aside" data-aos="fade-in">
 			<nav class="aside__nav">
 				<ul>
 					<li>
@@ -44,12 +44,12 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Link">
+						<a href="contacts.html" title="Link">
 							<img src="img/page-nav/page-nav-icon-3.svg" width="20" height="20" alt="">
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Link">
+						<a href="#contacts-popup" class="open-popup" title="Link">
 							<img src="img/page-nav/page-nav-icon-4.svg" width="20" height="20" alt="">
 						</a>
 					</li>
@@ -97,7 +97,7 @@
 				</ul>
 			</div>
 		</aside>
-		<header class="header container _min">
+		<header class="header container _min" data-aos="fade-in">
 			<div class="header__wrapper">
 				<a href="index.html" class="header__logo">
 					<img src="img/logo.svg" alt="Logo" width="197" height="36" loading="lazy" class="header__logo--img">
@@ -107,7 +107,7 @@
 					<div class="header__nav--body">
 						<ul class="header__nav--list">
 							<li>
-								<a href="#">
+								<a href="index.html">
 									<svg width="21" height="20" viewBox="0 0 21 20">
 										<use xlink:href="img/sprites.svg#main"></use>
 									</svg>
@@ -115,7 +115,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="portfolio.html">
 									<svg width="21" height="20" viewBox="0 0 21 20">
 										<use xlink:href="img/sprites.svg#portfolio"></use>
 									</svg>
@@ -123,7 +123,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="contacts.html">
 									<svg width="21" height="20" viewBox="0 0 21 20">
 										<use xlink:href="img/sprites.svg#feedback"></use>
 									</svg>
@@ -131,7 +131,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="contacts-form.html">
 									<svg width="21" height="20" viewBox="0 0 21 20">
 										<use xlink:href="img/sprites.svg#tel"></use>
 									</svg>
@@ -235,7 +235,7 @@
 		<main class="main">
 			<section class="hero container">
 				<div class="hero__col">
-					<div class="hero__about-me">
+					<div class="hero__about-me" data-aos="fade-in" data-aos-delay="200">
 						<h1 class="hero__title">
 							Hey, I am Daniel
 						</h1>
@@ -356,7 +356,7 @@
 					</div>
 				</div>
 				<div class="hero__col">
-					<div class="hero__slider-container">
+					<div class="hero__slider-container" data-aos="fade-in" data-aos-delay="300">
 						<button class="hero__slider--arrow swiper-button-prev">
 							<svg width="9" height="14" viewBox="0 0 9 14">
 								<use xlink:href="img/sprites.svg#slider-arrow-next"></use>
@@ -422,7 +422,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="hero__open-project">
+					<div class="hero__open-project" data-aos="fade-in" data-aos-delay="400">
 						<a href="#portfolio-project-popup" class="hero__open-project--link hide-on-tablet open-popup">
 							Press to watch
 						</a>
@@ -430,7 +430,7 @@
 							Press to watch
 						</a>
 					</div>
-					<strong class="hero__name">
+					<strong class="hero__name" data-aos="fade-in" data-aos-delay="500">
 						Daniel Sonis <br>
 						<mark>@denielsonis</mark>
 					</strong>
@@ -446,6 +446,7 @@
 				<span>Copyright All rights reserved 2022</span>
 			</div>
 		</footer>
+
 	</div>
 
 	<div class="portfolio-project popup" id="portfolio-project-popup">
@@ -487,8 +488,141 @@
 		</div>
 	</div>
 
+	<div class="contacts-popup popup" id="contacts-popup">
+		<div class="contacts-popup__wrapper popup-wrapper">
+			<div class="contacts-popup__bg popup-bg popup-close"></div>
+			<div class="contacts-popup__body popup-body">
+				<div class="contacts-popup__header">
+					<h2 class="contacts-popup__name">
+						Requers Contact Form
+					</h2>
+					<div class="contacts-popup__social">
+						<h3>Contacts :</h3>
+						<ul>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/gmail.avif" type="image/avif">
+										<source srcset="img/popup-contacts/gmail.webp" type="image/webp">
+										<img src="img/popup-contacts/gmail.png" alt="" width="14" height="10" loading="lazy">
+									</picture>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/facebook.avif" type="image/avif">
+										<source srcset="img/popup-contacts/facebook.webp" type="image/webp">
+										<img src="img/popup-contacts/facebook.png" alt="" width="16" height="14" loading="lazy">
+									</picture>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/linkedIn.avif" type="image/avif">
+										<source srcset="img/popup-contacts/linkedIn.webp" type="image/webp">
+										<img src="img/popup-contacts/linkedIn.png" alt="" width="16" height="14" loading="lazy">
+									</picture>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/fiverr.avif" type="image/avif">
+										<source srcset="img/popup-contacts/fiverr.webp" type="image/webp">
+										<img src="img/popup-contacts/fiverr.png" alt="" width="16" height="14" loading="lazy">
+									</picture>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="Link">
+									<picture>
+										<source srcset="img/popup-contacts/freelancehunt.avif" type="image/avif">
+										<source srcset="img/popup-contacts/freelancehunt.webp" type="image/webp">
+										<img src="img/popup-contacts/freelancehunt.png" alt="" width="16" height="14" loading="lazy">
+									</picture>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="contacts-popup__close-btn popup-close-btn popup-close" title="Close popup">
+						<svg width="13" height="13" viewBox="0 0 13 13">
+							<use xlink:href="img/sprites.svg#close"></use>
+						</svg>
+					</button>
+				</div>
+				<form method="post" class="contacts-popup__form">
+					<div class="contacts-popup__col">
+						<div class="contacts-popup__personal-contacts">
+							<h3>
+								Personal contacts:
+							</h3>
+							<ul>
+								<li>
+									Email: example@example.com
+								</li>
+								<li>
+									LinkTree: example.lt/
+								</li>
+								<li>
+									Office: Example ave. 69
+								</li>
+								<li>
+									Adress: Example ave. 96
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="contacts-popup__col">
+						<div class="contacts-popup__form-block">
+							<label>
+								<input type="text" name="name" placeholder="Name:" required>
+							</label>
+							<label>
+								<input type="email" name="email" placeholder="Email:" required>
+							</label>
+							<label>
+								<textarea name="message" rows="7" placeholder="Enter your message:"></textarea>
+							</label>
+							<button type="submit">
+								Send Request
+							</button>
+						</div>
+					</div>
+					<div class="contacts-popup__footer">
+						<h3>
+							Personal contacts:
+						</h3>
+						<a href="#">
+							Email: example@example.com
+						</a>
+						<span>
+							/
+						</span>
+						<a href="#">
+							LinkTree: example.lt/
+						</a>
+						<span>
+							/
+						</span>
+						<a href="#">
+							Office: Example ave. 69
+						</a>
+						<span>
+							/
+						</span>
+						<a href="#">
+							Adress: Example ave. 96
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
 	<script src="js/libs.min.js"></script>
-	<script src="js/main.min.js"></script>
+	<script src="js/main.js"></script>
 
 </body>
 
