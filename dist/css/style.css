@@ -3019,7 +3019,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     align-items: center;
     justify-content: center;
     background: rgba(0,0,0,0);
-    fill: var(--dark-gray-2)
+    fill: var(--text-color)
 }
 
 .contacts-popup__form-block,.contacts-popup__personal-contacts {
