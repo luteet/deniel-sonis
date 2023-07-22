@@ -5,11 +5,16 @@
 
 	@include _992 {
 		margin-top: 0;
+		
+		overflow-y: auto;
+		height: calc(100vh - var(--height-header) - 30px);
 	}
 
 	@media (min-width: 1440px) {
 		display: flex;
+		align-items: center;
 		flex-direction: row-reverse;
+		
 	}
 
 	// .hero__col
@@ -129,6 +134,9 @@
 
 		&--slide-wrapper {
 			width: 100%;
+			@include _992 {
+				padding-top: 30vh !important;
+			}
 			
 			background: linear-gradient(270deg, rgba(38, 38, 38, 0.00) 0%, rgba(101, 101, 101, 0.20) 100%);
 			border-radius: 30px;
@@ -149,7 +157,7 @@
 		width: 100%;
 
 		@include _992 {
-			margin-top: 50px;
+			margin-top: 30px;
 			min-height: 56px;
 		}
 
@@ -190,7 +198,7 @@
 		}
 		width: 100%;
 
-		margin-top: 112px;
+		margin-top: 60px;
 		width: calc(100vw - (var(--container-padding) * 2) - 85px);
 		@media (min-width: 1440px) {
 			width: calc(50vw - (var(--container-padding) * 2) - 85px);	
@@ -201,8 +209,8 @@
 		@media (prefers-color-scheme: dark) {
 			color: #E4E4E4;
 		}
-		font-size: 6.666667vw;
-		@media (min-width: 1800px) {
+		font-size: 11vh;
+		@media (min-width: 2000px) {
 			font-size: 120px;
 		}
 		font-weight: 600;
@@ -213,8 +221,8 @@
 			background-clip: text;
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
-			font-size: 5.333333vw;
-			@media (min-width: 1800px) {
+			font-size: 8vh;
+			@media (min-width: 2000px) {
 				font-size: 96px;
 			}
 			font-weight: 600;
@@ -234,7 +242,7 @@
 			@media (prefers-color-scheme: dark) {
 				background: linear-gradient(180deg, rgba(21, 26, 37, 0.568) 0%, rgba(6, 9, 20, 0.473) 100%);
 			}
-			padding: 50px;
+			padding: 30px 50px;
 		}
 		background-blend-mode: soft-light;
 		backdrop-filter: blur(12.5px);
@@ -314,7 +322,7 @@
 		// .hero__avatar--element
 
 		&--element {
-			width: 200px; height: 200px;
+			width: 180px; height: 180px;
 			border-radius: 50%;
 			border: 6px solid #30313D;
 			background: lightgray;
@@ -402,7 +410,7 @@
 		padding: 1.7vw 1.5vw 1vw 1.5vw;
 		font-size: 1.794872vw;
 		@include _992 {
-			margin-top: 41px;
+			margin-top: 15px;
 			padding: 10px 12px 5px 12px;
 			font-size: 0.9375rem;
 		}
@@ -417,6 +425,9 @@
 		
 		font-weight: 700;
 		line-height: 100%;
+
+		
+		
 	}
 
 	// .hero__social
@@ -434,7 +445,7 @@
 
 		@include _992 {
 			margin: -10px -25px;
-			padding-top: 53px;
+			padding-top: 35px;
 		}
 
 		li {
@@ -444,6 +455,25 @@
 			@include _550 {
 				margin: 10px 15px;
 				width: 35px; height: 35px;
+			}
+
+			a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				height: 100%; width: 100%;
+
+				@media (any-hover: hover) {
+					transition: opacity .3s ease;
+					&:hover {
+						opacity: .8;
+					}
+					
+					&:active {
+						opacity: .7;
+					}	
+				}
 			}
 
 			picture {

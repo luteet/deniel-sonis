@@ -55,6 +55,7 @@ body {
 	padding-right: var(--popup-padding);
 
 	position: relative;
+	//overflow: hidden;
 
 	&._mob-menu-active {
 		overflow: hidden;
@@ -196,6 +197,9 @@ body._popup-active .wrapper {
 	position: absolute;
 	left: 0; top: 0;
 	width: 100%; height: var(--wrapper-height);// min-height: var(--wrapper-height);
+	@include _992 {
+		height: 100vh;
+	}
 	background: #DBE2FF linear-gradient(180deg, #DBE2FF 0%, #DBE2FF 40%, #DBE2FF 70%);
 	-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 30%);
 	@media (prefers-color-scheme: dark) {
@@ -410,7 +414,7 @@ body._popup-active .wrapper {
 	&:not(:first-child) {
 		margin-top: 20px;
 	}
-	
+
 	font-family: "Jost", sans-serif;
 
 	display: flex;

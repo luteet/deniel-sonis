@@ -6,6 +6,10 @@
 	display: flex;
 	justify-content: center;
 	
+	@include _992 {
+		overflow-y: auto;
+		height: calc(100vh - var(--height-header) - 30px);
+	}
 
 	// .contacts__body
 

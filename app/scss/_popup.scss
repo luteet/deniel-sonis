@@ -458,9 +458,10 @@
 		@include _992 {
 			display: grid;
 			grid-template-columns: 35% auto;
+			
 		}
 
-		padding: 48px 62px 32px;
+		padding: 25px 30px 25px;
 	}
 
 	// .contacts-popup__col
@@ -509,7 +510,7 @@
 	// .contacts-popup__form-block
 
 	&__form-block {
-		padding: 42px 48px;
+		padding: 25px;
 
 		border-radius: 30px;
 		@media (prefers-color-scheme: dark) {
@@ -524,7 +525,7 @@
 		label {
 			width: 100%;
 			&:not(:first-child) {
-				margin-top: 40px;
+				margin-top: 30px;
 			}
 		}
 
@@ -549,7 +550,7 @@
 
 		textarea {
 			resize: none;
-			min-height: 302px;
+			min-height: 30vh;
 			padding: 25px 23px;
 		}
 
