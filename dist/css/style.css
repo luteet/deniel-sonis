@@ -4034,7 +4034,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .portfolio__list:not(._loaded) .portfolio__card:nth-child(n+4) {
-    opacity: .7
+    opacity: .1
 }
 
 .portfolio__card {
@@ -5723,7 +5723,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     }
 
     .portfolio__list:not(._loaded) .portfolio__card:nth-child(n+4) {
-        opacity: .5
+        opacity: .1
     }
 
     .portfolio__card--view {

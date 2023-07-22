@@ -168,9 +168,9 @@
 	// .portfolio__card
 
 	&__list:not(._loaded) &__card:nth-child(n + 4) {
-		opacity: .7;
+		opacity: .1;
 		@media (prefers-color-scheme: dark) {
-			opacity: .5;
+			opacity: .1;
 		}
 	}
 
