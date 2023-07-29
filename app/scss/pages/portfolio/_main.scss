@@ -119,7 +119,7 @@
 	// .portfolio__list
 
 	&__list {
-		margin-top: 25px;
+		//margin-top: 25px;
 
 		//height: max(30vh, 400px);
 
@@ -140,7 +140,7 @@
 			gap: 0px 40px;
 			grid-template-columns: 1fr 1fr;
 
-			padding-left: 34px; padding-bottom: 100px;
+			padding-left: 34px; padding-bottom: var(--padding-bottom);
 
 			height: calc(100vh - var(--height-header) - 275px);
 			width: 100%;
@@ -151,6 +151,7 @@
 			backdrop-filter: none;
 
 			-webkit-mask-image: none;
+			perspective: 100px;
 		}
 
 		@media (min-width: 1200px) {
@@ -168,6 +169,7 @@
 	&__block._loaded &__list {
 		height: auto;
 		-webkit-mask-image: none;
+		//padding-bottom: 8%;
 	}
 
 	&__block._loaded &__loadmore {
@@ -190,9 +192,9 @@
 		//height: calc(100vh - var(--height-header) - 200px);
 		/* opacity: var(--opacity);
 		transform: var(--transform); */
-		@include _992 {
+		/* @include _992 {
 			&:not(:nth-child(-n + 2)) {
-				margin-top: -100px;
+				margin-top: -5%;
 			}
 		}
 		@media (min-width: 1550px) {
@@ -200,9 +202,9 @@
 				margin-top: 0;
 			}
 			&:not(:nth-child(-n + 3)) {
-				margin-top: -100px;
+				margin-top: -5%;
 			}
-		}
+		} */
 
 		&--body {
 			min-height: 100%;

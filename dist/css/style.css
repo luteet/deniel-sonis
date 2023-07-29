@@ -1,8 +1,4 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */.swiper-wrapper,hr {
-    box-sizing: content-box
-}
-
-.swiper-cube,.swiper-flip,button,hr,input {
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */.swiper-cube,.swiper-flip,button,hr,input {
     overflow: visible
 }
 
@@ -27,6 +23,7 @@ details,main {
 }
 
 hr {
+    box-sizing: content-box;
     height: 0
 }
 
@@ -394,12 +391,6 @@ summary {
     height: 3px
 }
 
-.swiper-slide,.swiper-wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative
-}
-
 .splide__slide:focus {
     outline: 0
 }
@@ -532,12 +523,16 @@ summary {
 }
 
 .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
     z-index: 1;
     display: flex;
     transition-property: -webkit-transform;
     transition-property: transform;
     transition-property: transform,-webkit-transform;
-    transition-timing-function: var(--swiper-wrapper-transition-timing-function,initial)
+    transition-timing-function: var(--swiper-wrapper-transition-timing-function,initial);
+    box-sizing: content-box
 }
 
 .swiper-android .swiper-slide,.swiper-ios .swiper-slide,.swiper-wrapper {
@@ -555,6 +550,9 @@ summary {
 
 .swiper-slide {
     flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
     transition-property: -webkit-transform;
     transition-property: transform;
     transition-property: transform,-webkit-transform;
@@ -987,6 +985,10 @@ button.swiper-pagination-bullet {
     transition: .2s transform,.2s right
 }
 
+.header__burger span,[data-aos][data-aos][data-aos-duration="300"],body[data-aos-duration="300"] [data-aos] {
+    transition-duration: .3s
+}
+
 .swiper-fade.swiper-free-mode .swiper-slide,.swiper-free-mode>.swiper-wrapper,[data-aos][data-aos][data-aos-easing=ease-out],body[data-aos-easing=ease-out] [data-aos] {
     transition-timing-function: ease-out
 }
@@ -1126,10 +1128,6 @@ button.swiper-pagination-bullet {
     flex-direction: column
 }
 
-.header__burger span,[data-aos][data-aos][data-aos-easing=ease],body[data-aos-easing=ease] [data-aos] {
-    transition-timing-function: ease
-}
-
 .swiper-fade .swiper-slide {
     pointer-events: none;
     transition-property: opacity
@@ -1143,7 +1141,7 @@ button.swiper-pagination-bullet {
     pointer-events: auto
 }
 
-.swiper-cube .swiper-slide,.swiper-cube .swiper-slide .swiper-slide,.swiper-flip .swiper-slide,.swiper-flip .swiper-slide .swiper-slide {
+.alert-message-list,.drag-icon,.hero-bg,.hero__avatar--decor,.page-background,.portfolio-page__back::before,.swiper-cube .swiper-slide,.swiper-cube .swiper-slide .swiper-slide,.swiper-flip .swiper-slide,.swiper-flip .swiper-slide .swiper-slide {
     pointer-events: none
 }
 
@@ -1251,11 +1249,6 @@ button.swiper-pagination-bullet {
     width: 100%
 }
 
-.hero__avatar--decor,.page-background {
-    -ms-user-select: none;
-    pointer-events: none
-}
-
 .keen-slider:not([data-keen-slider-disabled]) .keen-slider__slide {
     min-height: 100%;
     overflow: hidden;
@@ -1333,10 +1326,6 @@ button.swiper-pagination-bullet {
 
 [data-aos][data-aos][data-aos-delay="250"].aos-animate,body[data-aos-delay="250"] [data-aos].aos-animate {
     transition-delay: .25s
-}
-
-[data-aos][data-aos][data-aos-duration="300"],body[data-aos-duration="300"] [data-aos] {
-    transition-duration: .3s
 }
 
 [data-aos][data-aos][data-aos-delay="300"],body[data-aos-delay="300"] [data-aos] {
@@ -1999,6 +1988,10 @@ button.swiper-pagination-bullet {
     transition-timing-function: cubic-bezier(.25,.25,.75,.75)
 }
 
+[data-aos][data-aos][data-aos-easing=ease],body[data-aos-easing=ease] [data-aos] {
+    transition-timing-function: ease
+}
+
 [data-aos][data-aos][data-aos-easing=ease-in],body[data-aos-easing=ease-in] [data-aos] {
     transition-timing-function: ease-in
 }
@@ -2238,6 +2231,10 @@ button.swiper-pagination-bullet {
     transform: perspective(2500px) rotateX(0)
 }
 
+.cookies-message,.drag-icon {
+    -webkit-transform: translate(-50%,0)
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -2381,8 +2378,7 @@ body._popup-active .wrapper {
 
 .hero-bg {
     height: 100vh;
-    z-index: 1;
-    pointer-events: none
+    z-index: 1
 }
 
 .hero-bg__item {
@@ -2416,7 +2412,6 @@ body._popup-active .wrapper {
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%,0);
     transform: translate(-50%,0);
     width: 65px;
     height: 65px;
@@ -2428,7 +2423,6 @@ body._popup-active .wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none;
     transition: opacity .3s ease,visibility .3s ease;
     opacity: 1;
     visibility: visible
@@ -2461,6 +2455,7 @@ body._popup-active .wrapper {
     background: linear-gradient(180deg,#DBE2FF 0,#DBE2FF 40%,#DBE2FF 70%) #dbe2ff;
     -webkit-mask-image: linear-gradient(0deg,rgba(0,0,0,0) 0,#fff 30%);
     -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     z-index: 1
 }
@@ -2512,7 +2507,6 @@ body._popup-active .wrapper {
     position: absolute;
     left: 50%;
     bottom: 70px;
-    -webkit-transform: translate(-50%,0);
     transform: translate(-50%,0);
     z-index: 2;
     max-width: 537px;
@@ -2594,7 +2588,6 @@ body._popup-active .wrapper {
     right: 0;
     top: calc(var(--height-header) + 50px);
     padding: 0 44px;
-    pointer-events: none;
     z-index: 5
 }
 
@@ -2645,11 +2638,11 @@ body._popup-active .wrapper {
 .alert-message::after,.alert-message::before {
     position: absolute;
     background: rgba(215,25,44,.7);
-    top: 0;
-    height: 100%;
     width: 100%;
-    z-index: -1;
+    height: 100%;
+    top: 0;
     right: 0;
+    z-index: -1;
     content: ""
 }
 
@@ -2665,6 +2658,11 @@ body._popup-active .wrapper {
 .alert-message::after {
     -webkit-clip-path: polygon(100% 0,84% 0,100% 50%);
     clip-path: polygon(100% 0,84% 0,100% 50%)
+}
+
+.header__nav,.popup {
+    position: fixed;
+    visibility: hidden
 }
 
 .alert-message svg {
@@ -2749,7 +2747,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .popup {
-    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -2759,7 +2756,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     padding: 10px;
     z-index: 100;
     opacity: 0;
-    visibility: hidden;
     transition: opacity .4s ease,visibility .4s ease
 }
 
@@ -2945,12 +2941,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     backdrop-filter: blur(25px)
 }
 
-.contacts-popup__form,.contacts-popup__header {
-    -webkit-backdrop-filter: blur(0);
-    opacity: 0;
-    border-radius: 30px
-}
-
 .contacts-popup__bg {
     opacity: 0
 }
@@ -2962,11 +2952,14 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .contacts-popup__header {
     margin: 0 auto;
+    border-radius: 30px;
     background: rgba(255,255,255,.3);
     background-blend-mode: color-burn;
+    -webkit-backdrop-filter: blur(0);
     backdrop-filter: blur(0);
     max-width: 1447px;
     width: 100%;
+    opacity: 0;
     transition: opacity .5s ease,-webkit-backdrop-filter .5s ease;
     transition: opacity .5s ease,backdrop-filter .5s ease;
     transition: opacity .5s ease,backdrop-filter .5s ease,-webkit-backdrop-filter .5s ease;
@@ -3049,10 +3042,13 @@ input:focus::placeholder,textarea:focus::placeholder {
     margin-top: 35px;
     background: rgba(255,255,255,.5);
     background-blend-mode: color-burn;
+    -webkit-backdrop-filter: blur(0);
     backdrop-filter: blur(0);
+    opacity: 0;
     transition: opacity .5s ease,-webkit-backdrop-filter .5s ease;
     transition: opacity .5s ease,backdrop-filter .5s ease;
     transition: opacity .5s ease,backdrop-filter .5s ease,-webkit-backdrop-filter .5s ease;
+    border-radius: 30px;
     padding: 25px 30px
 }
 
@@ -3152,10 +3148,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     line-height: normal
 }
 
-.header__lang--list,.header__lang::before,.header__nav {
-    transition: opacity .3s ease,visibility .3s ease
-}
-
 .contacts-popup__form-block button[type=submit]:hover {
     opacity: .8
 }
@@ -3223,7 +3215,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .header__nav {
-    position: fixed;
     left: 0;
     top: calc(var(--height-header) + 10px);
     width: 100%;
@@ -3236,7 +3227,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     overflow-y: auto;
     overflow-x: hidden;
     opacity: 0;
-    visibility: hidden
+    transition: opacity .3s ease,visibility .3s ease
 }
 
 .header__nav--list li a,.hero__open-project--link {
@@ -3351,7 +3342,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 .header__lang--list,.header__lang::before {
     position: absolute;
     left: 0;
-    border-radius: 0 0 10px 10px
+    transition: opacity .3s ease,visibility .3s ease
 }
 
 .header__lang::before {
@@ -3363,6 +3354,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     background-blend-mode: soft-light;
+    border-radius: 0 0 10px 10px;
     z-index: -1;
     opacity: 0;
     visibility: hidden
@@ -3400,6 +3392,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     top: 100%;
     width: 100%;
     padding: 20px 0;
+    border-radius: 0 0 10px 10px;
     border-left: 1px solid #e4e4e4;
     border-right: 1px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
@@ -3475,7 +3468,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     width: 100%;
     height: 3px;
     background: #373b3f;
-    transition-duration: .3s;
+    transition-timing-function: ease;
     transition-property: top,opacity,visibility,-webkit-transform;
     transition-property: transform,top,opacity,visibility;
     transition-property: transform,top,opacity,visibility,-webkit-transform
@@ -3578,6 +3571,10 @@ input:focus::placeholder,textarea:focus::placeholder {
     background: var(--accent-gradient)
 }
 
+.aside__social a,.hero__avatar,.hero__slider-container {
+    position: relative
+}
+
 .aside hr {
     width: 1px;
     flex: 1 1 auto;
@@ -3603,8 +3600,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    position: relative
+    width: 60px
 }
 
 .aside__social a img {
@@ -3624,17 +3620,13 @@ input:focus::placeholder,textarea:focus::placeholder {
     align-items: center
 }
 
-.hero__name,.hero__slider--arrow {
-    display: none
-}
-
 .hero__slider {
     width: calc(100vw + 40px);
     margin: 0 -60px
 }
 
-.hero__slider-container {
-    position: relative
+.hero__slider--arrow {
+    display: none
 }
 
 .hero__slider--slide {
@@ -3683,6 +3675,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .hero__name {
+    display: none;
     margin-top: 60px;
     width: calc(100vw - var(--container-padding) *2 - 85px);
     text-align: left;
@@ -3703,6 +3696,11 @@ input:focus::placeholder,textarea:focus::placeholder {
     opacity: 0;
     visibility: hidden;
     transition: opacity .3s ease,visibility .3s ease
+}
+
+.hero__text,.hero__title {
+    color: #212121;
+    line-height: normal
 }
 
 .hero__name mark.active {
@@ -3729,15 +3727,12 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .hero__title {
-    color: #212121;
     font-size: .75rem;
     font-weight: 500;
-    line-height: normal;
     text-transform: uppercase
 }
 
 .hero__avatar {
-    position: relative;
     display: inline-block
 }
 
@@ -3756,6 +3751,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     justify-content: center;
     border: 5px solid #fff;
     -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none
 }
 
@@ -3797,10 +3793,8 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .hero__text {
     padding-top: 30px;
-    color: #212121;
     font-size: 1.25rem;
     font-weight: 400;
-    line-height: normal;
     max-width: 600px;
     margin: 0 auto;
     display: none
@@ -4060,7 +4054,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .portfolio__list {
-    margin-top: 25px;
     display: grid;
     grid-template-columns: 100%;
     background: linear-gradient(180deg,rgba(255,255,255,.1) 0,rgba(255,255,255,0) 100%);
@@ -4469,8 +4462,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     width: calc(100% - 24px);
     height: 100%;
     opacity: .1000000015;
-    background: radial-gradient(485.55% 113.27% at 50% 50%,#212121 0,#6d97ff 100%);
-    pointer-events: none
+    background: radial-gradient(485.55% 113.27% at 50% 50%,#212121 0,#6d97ff 100%)
 }
 
 .portfolio-page__back--btn {
@@ -5171,7 +5163,7 @@ input:focus::placeholder,textarea:focus::placeholder {
         gap: 0 40px;
         grid-template-columns: 1fr 1fr;
         padding-left: 34px;
-        padding-bottom: 100px;
+        padding-bottom: var(--padding-bottom);
         height: calc(100vh - var(--height-header) - 275px);
         width: 100%;
         flex: 1 1 auto;
@@ -5179,15 +5171,13 @@ input:focus::placeholder,textarea:focus::placeholder {
         background: rgba(0,0,0,0);
         -webkit-backdrop-filter: none;
         backdrop-filter: none;
-        -webkit-mask-image: none
+        -webkit-mask-image: none;
+        -webkit-perspective: 100px;
+        perspective: 100px
     }
 
     .portfolio__block,.portfolio__block._loaded {
         height: calc(100vh - var(--height-header) - 195px)
-    }
-
-    .portfolio__card:not(:nth-child(-n+2)) {
-        margin-top: -100px
     }
 
     .portfolio__card--header {
@@ -5575,14 +5565,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 @media (min-width:1550px) {
     .portfolio__list {
         grid-template-columns: 1fr 1fr 1fr
-    }
-
-    .portfolio__card:not(:nth-child(-n+2)) {
-        margin-top: 0
-    }
-
-    .portfolio__card:not(:nth-child(-n+3)) {
-        margin-top: -100px
     }
 }
 

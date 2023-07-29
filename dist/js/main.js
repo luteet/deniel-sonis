@@ -591,31 +591,47 @@ const matchMedia = gsap.matchMedia();
 
 matchMedia.add('(min-width: 992px)', () => {
 	const portfolioCards = document.querySelectorAll('.portfolio__card');
+	if(document.querySelector('.portfolio__list')) {
+		document.querySelector('.portfolio__list').style.setProperty('--padding-bottom', document.querySelector('.portfolio__block').offsetHeight - portfolioCards[portfolioCards.length - 1].offsetHeight - 50 + 'px');
+		window.addEventListener('resize', function () {
+			document.querySelector('.portfolio__list').style.setProperty('--padding-bottom', document.querySelector('.portfolio__block').offsetHeight - portfolioCards[portfolioCards.length - 1].offsetHeight - 50 + 'px');
+		})
+	}
 	portfolioCards.forEach((portfolioCard, index) => {
 		
 		gsap.set(portfolioCard, {
 			opacity: 0,
-			transform: 'translate3d(0,0px,0) rotateX(55deg)'
+			transform: 'translate3d(0,0,-10px) rotateX(-2deg)'
 		})
 	
 		const timeline = gsap.timeline({
 			scrollTrigger: {
 				trigger: portfolioCard,
 				scroller: '.portfolio__block',
-				start: '-200 center',
-				end: `${portfolioCard.offsetHeight} center`,
+				start: `${window.innerHeight*0.2} ${window.innerHeight*0.797}`,
+				end: `${window.innerHeight*0.8} ${window.innerHeight*0.27}`,
 				//markers: true,
 				scrub: true,
 			}
 		});
+
+		/* start: `${window.innerHeight*0.3} ${window.innerHeight*0.797}`,
+		end: `${window.innerHeight*0.8} center`, */
+
+		console.log(portfolioCard.offsetHeight*1.4 + ' ' + window.innerHeight*0.8)
+
+		/* timeline.to(portfolioCard, {
+			transform: 'translate3d(0,0,-50px) rotateX(2deg)',
+			opacity: 1,
+		}) */
 	
 		timeline.to(portfolioCard, {
-			transform: 'translate3d(0,50px,0) rotateX(0deg)',
+			transform: 'translate3d(0,0,0) rotateX(0deg)',
 			opacity: 1,
 		})
 	
 		timeline.to(portfolioCard, {
-			transform: 'translate3d(0,50px,0) rotateX(55deg)',
+			transform: 'translate3d(0,0,-10px) rotateX(2deg)',
 			opacity: 0,
 		})
 	
