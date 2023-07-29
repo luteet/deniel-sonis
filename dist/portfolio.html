@@ -35,22 +35,30 @@
 				<ul>
 					<li>
 						<a href="index.html" class="current" title="Link">
-							<img src="img/page-nav/page-nav-icon-1.svg" width="20" height="20" alt="">
+							<svg width="21" height="20" viewBox="0 0 21 20">
+								<use xlink:href="img/sprites.svg#main"></use>
+							</svg>
 						</a>
 					</li>
 					<li>
 						<a href="portfolio.html" title="Link">
-							<img src="img/page-nav/page-nav-icon-2.svg" width="20" height="20" alt="">
+							<svg width="21" height="20" viewBox="0 0 21 20">
+								<use xlink:href="img/sprites.svg#portfolio"></use>
+							</svg>
 						</a>
 					</li>
 					<li>
 						<a href="contacts.html" title="Link">
-							<img src="img/page-nav/page-nav-icon-3.svg" width="20" height="20" alt="">
+							<svg width="21" height="20" viewBox="0 0 21 20">
+								<use xlink:href="img/sprites.svg#contacts"></use>
+							</svg>
 						</a>
 					</li>
 					<li>
 						<a href="#contacts-popup" class="open-popup" title="Link">
-							<img src="img/page-nav/page-nav-icon-4.svg" width="20" height="20" alt="">
+							<svg width="21" height="20" viewBox="0 0 21 20">
+								<use xlink:href="img/sprites.svg#tel"></use>
+							</svg>
 						</a>
 					</li>
 				</ul>
@@ -640,8 +648,8 @@
 						const wrapper = document.querySelector('.wrapper')
 						wrapper.classList.add('footer-shadow');
 						loadmoreBtn.addEventListener('click', function() {
-							const portfolioList = document.querySelector('.portfolio__list');
-							portfolioList.classList.add('_loaded');
+							const portfolioBlock = document.querySelector('.portfolio__block');
+							portfolioBlock.classList.add('_loaded');
 							wrapper.classList.remove('footer-shadow');
 						})
 					</script>

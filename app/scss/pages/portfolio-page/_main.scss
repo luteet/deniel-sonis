@@ -11,7 +11,7 @@
 		display: flex;
 		flex-direction: column;
 
-		min-height: 100%;
+		min-height: 100%; width: 100%;
 
 		background: linear-gradient(180deg, rgba(179, 179, 179, 0.2) 0%, rgba(255, 255, 255, 0.00) 100%);
 		@media (prefers-color-scheme: dark) {
@@ -411,14 +411,19 @@
 		@include _992 {
 			display: block;
 			flex: 0 1 calc(100% - 350px);
+			width: calc(100% - 350px);
 		}
 
 		@media (min-width: 1100px) {
 			flex: 0 1 calc(100% - 404px);
+			width: calc(100% - 404px);
 		}
+
 		@media (min-width: 1440px) {
 			flex: 0 1 calc(100% - 455px);
+			width: calc(100% - 455px);
 		}
+
 		margin: 0;
 		margin-top: 24px;
 

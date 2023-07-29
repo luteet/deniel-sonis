@@ -107,15 +107,23 @@ const headerNavList = document.querySelector('.header__lang--list'), aside = doc
 
 let portfolioMinGallery, contactsBlock;
 
-setTimeout(() => {
+/* setTimeout(() => {
 	html.style.setProperty('--wrapper-height', wrapper2.offsetHeight + 'px');
-},0)
+},0) */
+
+if(wrapper2) {
+	setInterval(() => {
+		html.style.setProperty('--wrapper-height', wrapper2.offsetHeight + 'px');
+	},100)
+}
+
+
 
 function resize() {
 
 	html.style.setProperty("--height-header", header.offsetHeight + "px");
 	html.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
-	html.style.setProperty('--wrapper-height', wrapper2.offsetHeight + 'px');
+	
 
 	
 	if(windowSize != window.innerWidth) {
@@ -223,7 +231,10 @@ window.addEventListener('resize', resize)
 if(document.querySelector('.hero__slider')) {
 	
 	const popup = document.querySelector('#portfolio-project-popup'),
-	link = document.querySelector('.hero__open-project--link:not(.open-popup)');
+	link = document.querySelector('.hero__open-project--link:not(.open-popup)'),
+	heroName = document.querySelector('.hero__name span'),
+	heroBg = document.querySelector('.hero-bg');
+	
 	const heroSlider = new Swiper('.hero__slider', {
 		speed: 1000,
 		navigation: {
@@ -239,7 +250,6 @@ if(document.querySelector('.hero__slider')) {
 				document.querySelector('.hero__slider').classList.add('drag-active');
 			},
 			activeIndexChange: function () {
-				
 				setTimeout(() => {
 					popup.style.setProperty('--theme', heroSlider['slides'][heroSlider.activeIndex].dataset.theme);
 					const image = heroSlider['slides'][heroSlider.activeIndex].querySelector('picture').cloneNode(true, true),
@@ -249,11 +259,46 @@ if(document.querySelector('.hero__slider')) {
 					popupImage.append(image);
 	
 					link.setAttribute('href', heroSlider['slides'][heroSlider.activeIndex].dataset.url);
+
+					html.style.setProperty('--aside-nav-theme', heroSlider['slides'][heroSlider.activeIndex].dataset.themeColor)
+					heroName.querySelectorAll('mark').forEach((mark, index) => {
+						mark.classList.remove('active')
+						if(index == heroSlider['slides'][heroSlider.activeIndex].dataset.index) mark.classList.add('active')
+					})
+
+					heroBg.querySelectorAll('.hero-bg__item').forEach((item, index) => {
+						item.classList.remove('active')
+						if(index == heroSlider['slides'][heroSlider.activeIndex].dataset.index) item.classList.add('active')
+					})
+					
 				},500)
 			},
 			init: function () {
 				setTimeout(() => {
 					link.setAttribute('href', heroSlider['slides'][heroSlider.activeIndex].dataset.url);
+					
+					for(let index = 0; index < heroSlider['slides'].length; index++) {
+
+						if(heroSlider['slides'][index].dataset.themeBg) {
+							heroBg.insertAdjacentHTML('beforeend', `<div class="hero-bg__item" style="--theme: ${heroSlider['slides'][index].dataset.themeBg}"></div>`)
+						} else {
+							heroBg.insertAdjacentHTML('beforeend', `<div class="hero-bg__item"></div>`)
+						}
+
+						const clone = heroName.querySelector('mark').cloneNode(true);
+						clone.style.setProperty('--theme', heroSlider['slides'][index].dataset.themeText)
+						clone.setAttribute('data-index', index);
+						if(index == 0) heroName.innerHTML = '';
+						heroName.append(clone);
+					}
+
+					
+
+					Array.from(heroSlider['slides']).forEach((slide, index) => {
+						slide.setAttribute('data-index', index);
+					})
+					//console.log(heroSlider['slides'][heroSlider.activeIndex])
+
 					if(heroSlider['slides'].length <= 1) {
 						document.querySelector('.hero__slider').classList.add('drag-active');
 					}
@@ -541,6 +586,114 @@ AOS.init({
 	disable: "mobile",
 	once: true,
 });
+
+const matchMedia = gsap.matchMedia();
+
+matchMedia.add('(min-width: 992px)', () => {
+	const portfolioCards = document.querySelectorAll('.portfolio__card');
+	portfolioCards.forEach((portfolioCard, index) => {
+		
+		gsap.set(portfolioCard, {
+			opacity: 0,
+			transform: 'translate3d(0,0px,0) rotateX(55deg)'
+		})
+	
+		const timeline = gsap.timeline({
+			scrollTrigger: {
+				trigger: portfolioCard,
+				scroller: '.portfolio__block',
+				start: '-200 center',
+				end: `${portfolioCard.offsetHeight} center`,
+				//markers: true,
+				scrub: true,
+			}
+		});
+	
+		timeline.to(portfolioCard, {
+			transform: 'translate3d(0,50px,0) rotateX(0deg)',
+			opacity: 1,
+		})
+	
+		timeline.to(portfolioCard, {
+			transform: 'translate3d(0,50px,0) rotateX(55deg)',
+			opacity: 0,
+		})
+	
+		/* if(index <= 2) {
+			portfolioCard.classList.add('_animated');
+			gsap.to(portfolioCard, {
+				transform: 'translate3d(0,0,0) rotateX(0deg)',
+				opacity: 1,
+			})
+		} */
+	})
+})
+
+
+
+/* if(document.querySelector('.portfolio__block')) {
+	let scrollDownCheck = false, scrollUpCheck = false, lastIndex = 0;
+	document.querySelector('.portfolio__block').addEventListener('wheel', function(event)
+	
+	{
+		
+	 if (event.deltaY < 0 && scrollUpCheck == false) {
+		
+	  scrollUpCheck=true;
+	  scrollDownCheck = false;
+	 }
+	 else if (event.deltaY > 0 && scrollDownCheck == false)
+	 {
+	  scrollDownCheck = true;
+	  scrollUpCheck=false;
+
+	  let hideAnimatedCards = false
+
+	  portfolioCards.forEach((portfolioCard, index) => {
+		
+		if(!portfolioCard.classList.contains('_animated') && index >= lastIndex) {
+			if(!hideAnimatedCards) {
+				lastIndex = index;
+				hideAnimatedCards = true;
+				const activePortfolioCards = document.querySelectorAll('.portfolio__card._animated');
+				activePortfolioCards.forEach((portfolioCard, index) => {
+					gsap.to(portfolioCard, {
+						transform: 'translate3d(0,-100%,0) rotateX(50deg)',
+						opacity: 0,
+						duration: 1,
+					})
+					portfolioCard.classList.remove('_animated')
+				})
+			}
+			if(index <= lastIndex+2) {
+				gsap.to(portfolioCard, {
+					transform: 'translate3d(0,0,0) rotateX(0deg)',
+					opacity: 1,
+					delay: 0.2,
+					duration: 1,
+				})
+				portfolioCard.classList.add('_animated')
+			}
+		}
+	
+		if(index <= 2) {
+			portfolioCard.classList.add('_animated');
+			gsap.to(portfolioCard, {
+				transform: 'translate3d(0,0,0) rotateX(0deg)',
+				opacity: 1,
+			})
+		}
+	})
+
+	setTimeout(() => {
+		scrollDownCheck = false;
+	},1000)
+	 }
+	});
+} */
+
+
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </animation> -=-=-=-=-=-=-=-=-=-=-=-=
 

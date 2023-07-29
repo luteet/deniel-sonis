@@ -37,10 +37,6 @@
 			border-radius: 0 0 5px 5px;
 		}
 
-		/* li:last-child a {
-			border-bottom: 1px solid var(--dark-gray-2);
-		} */
-
 		a {
 			display: flex;
 			align-items: center;
@@ -51,6 +47,11 @@
 			border-left: 1px solid #858894;
 			border-right: 1px solid #858894;
 			border-bottom: 1px solid #858894;
+
+			fill: var(--aside-nav-theme, var(--accent-active));
+			svg {
+				transition: fill .3s ease;
+			}
 
 			@media (prefers-color-scheme: dark) {
 				border-left: 1px solid var(--dark-gray-2);

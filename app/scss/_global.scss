@@ -92,8 +92,28 @@ body._popup-active .wrapper {
 	filter: blur(5px);
 }
 
+.hero-bg {
+	position: absolute;
+	left: 0; top: 0;
+	width: 100%; height: 100vh;
+	z-index: 1;
+	pointer-events: none;
+	&__item {
+		position: absolute;
+		left: 0; top: 0;
+		width: 100%; height: 100%;
+		background: var(--theme);
+
+		transition: opacity .3s ease, visibility .3s ease;
+		opacity: 0; visibility: hidden;
+		&.active {
+			opacity: .15; visibility: visible;
+		}
+	}
+}
+
 .wrapper {
-	flex: 1 1 auto;
+	//flex: 1 1 auto;
 	position: relative;
 
 	transition: filter .5s ease;
@@ -122,6 +142,7 @@ body._popup-active .wrapper {
 
 	@include _992 {
 		grid-column: 2; grid-row: 2;
+		align-self: self-start;
 	}
 }
 
@@ -133,13 +154,14 @@ body._popup-active .wrapper {
 
 .footer {
 	@include _992 {
-		grid-column: 2 span;
+		grid-column: 1/3; grid-row: 2;
+		align-self: self-end;
 	}
 }
 
 .aside {
 	@include _992 {
-		grid-column: 1; grid-row: 2 span;
+		grid-column: 1/1; grid-row: 1/3;
 	}
 }
 
