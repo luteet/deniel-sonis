@@ -309,6 +309,8 @@
 		height: 65vw;
 		padding-bottom: 35%;
 
+		z-index: 0;
+
 		-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,1) 50%);
 		
 		@include _992 {
@@ -394,7 +396,7 @@
 
 			width: 75px; height: 75px;
 
-			fill: url(#accent-gradient);
+			fill: var(--theme-accent, url(#accent-gradient));
 
 			svg {
 				width: 20px; height: 33px;
@@ -407,6 +409,7 @@
 	&__gallery-nav {
 
 		display: none;
+		z-index: 0;
 		
 		@include _992 {
 			display: block;
@@ -440,6 +443,7 @@
 		&--slide {
 			height: max(13vh, 100%);
 			position: relative;
+			z-index: 1;
 			img {
 				position: absolute;
 				left: 0; top: 0;
@@ -502,6 +506,7 @@
 		padding-left: 24px; padding-top: 20px; padding-bottom: 20px;
 
 		position: relative;
+		
 		&::before {
 			content: '';
 			position: absolute;
@@ -517,6 +522,7 @@
 			}
 			background: radial-gradient(485.55% 113.27% at 50.00% 50.00%, #212121 0%, #6d97ff 100%);
 			pointer-events: none;
+			z-index: -1;
 		}
 
 		// .portfolio-page__back--btn
@@ -525,7 +531,7 @@
 			padding: 12px 41px;
 			border-radius: 30px;
 			background: #d8e0ff;
-			z-index: 2;
+			//z-index: 2;
 			//background: #DBE2FF;
 
 			display: inline-flex;

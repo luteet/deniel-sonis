@@ -1,9 +1,9 @@
 .portfolio {
 
-	padding-bottom: 20px;
+	padding-bottom: 20px; padding-top: 20px;
 
 	@include _992 {
-		overflow-y: auto;
+		overflow-y: auto; padding-top: 0;
 		height: calc(100vh - var(--height-header) - 30px);
 		padding-bottom: 0;
 	}
@@ -100,7 +100,7 @@
 				opacity: .2;
 			}
 			&._current::before {
-				background: var(--accent-active);
+				background: var(--theme-accent, var(--accent-active));
 				opacity: 1;
 			}
 

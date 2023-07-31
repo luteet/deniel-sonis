@@ -30,83 +30,8 @@
 				<img src="img/page-background.png" alt="" width="0" height="0" loading="lazy">
 			</picture>
 		</div>
-		<aside class="aside" data-aos="fade-in">
-			<nav class="aside__nav">
-				<ul>
-					<li>
-						<a href="index.html" class="current" title="Link">
-							<svg width="21" height="20" viewBox="0 0 21 20">
-								<use xlink:href="img/sprites.svg#main"></use>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="portfolio.html" title="Link">
-							<svg width="21" height="20" viewBox="0 0 21 20">
-								<use xlink:href="img/sprites.svg#portfolio"></use>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="contacts.html" title="Link">
-							<svg width="21" height="20" viewBox="0 0 21 20">
-								<use xlink:href="img/sprites.svg#contacts"></use>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="#contacts-popup" class="open-popup" title="Link">
-							<svg width="21" height="20" viewBox="0 0 21 20">
-								<use xlink:href="img/sprites.svg#tel"></use>
-							</svg>
-						</a>
-					</li>
-				</ul>
-			</nav>
-			<hr>
-			<div class="aside__social">
-				<ul>
-					<li>
-						<a href="#" title="Link">
-							<picture>
-								<source srcset="img/contacts/social-3.avif" type="image/avif">
-								<source srcset="img/contacts/social-3.webp" type="image/webp">
-								<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
-							</picture>
-						</a>
-					</li>
-					<li>
-						<a href="#" title="Link">
-							<picture>
-								<source srcset="img/contacts/social-3.avif" type="image/avif">
-								<source srcset="img/contacts/social-3.webp" type="image/webp">
-								<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
-							</picture>
-						</a>
-					</li>
-					<li>
-						<a href="#" title="Link">
-							<picture>
-								<source srcset="img/contacts/social-3.avif" type="image/avif">
-								<source srcset="img/contacts/social-3.webp" type="image/webp">
-								<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
-							</picture>
-						</a>
-					</li>
-					<li>
-						<a href="#" title="Link">
-							<picture>
-								<source srcset="img/contacts/social-3.avif" type="image/avif">
-								<source srcset="img/contacts/social-3.webp" type="image/webp">
-								<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
-							</picture>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</aside>
-		<header class="header container _min" data-aos="fade-in">
-			<div class="header__wrapper">
+		<header class="header container _min">
+			<div class="header__wrapper" data-aos="fade-in">
 				<a href="index.html" class="header__logo">
 					<img src="img/logo.svg" alt="Logo" width="197" height="36" loading="lazy" class="header__logo--img">
 					<img src="img/logo-dark.svg" alt="Logo" width="197" height="36" loading="lazy" class="header__logo--img">
@@ -239,17 +164,29 @@
 				</button>
 			</div>
 		</header>
+		<div class="hero-bg">
+			<div class="hero-bg__item _active"></div>
+		</div>
+		<script>
+			const heroBgItem = document.querySelector('.hero-bg__item');
+			if (heroBgItem && localStorage.getItem('deniel-sonis-theme-bg')) {
+				heroBgItem.style.setProperty('--theme', localStorage.getItem('deniel-sonis-theme-bg'));
+				document.querySelector('html').style.setProperty('--theme-gradient', localStorage.getItem('deniel-sonis-theme-bg'));
+			}
 
+			if (localStorage.getItem('deniel-sonis-theme-accent')) document.querySelector('html').style.setProperty('--theme-accent', localStorage.getItem('deniel-sonis-theme-accent'));
+		</script>
 		<main class="main">
-			<section class="contacts container">
+			<section class="contacts container" data-aos="fade-in" data-aos-delay="200">
 				<div class="contacts__body">
 					<h1 class="contacts__title visually-hidden">
 						Contacts
 					</h1>
-					<div class="contacts__block swiper" data-aos="fade-in" data-aos-delay="200">
+					<div class="contacts__block swiper">
 						<div class="contacts__list swiper-wrapper">
 							<div class="contacts__item swiper-slide">
-								<a href="#" class="contacts__item--body" title="Email" data-open-text="Open" style="--theme: #005BBB;">
+								<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
+								<a href="#" class="contacts__item--body" title="Email" data-open-text="Open">
 									<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 										<span>O</span>
 										<span>P</span>
@@ -270,6 +207,7 @@
 								</a>
 							</div>
 							<div class="contacts__item swiper-slide">
+								<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
 								<a href="#" class="contacts__item--body" title="Link" data-open-text="Open" style="--theme: #EAB133;">
 									<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 										<span>O</span>
@@ -291,6 +229,7 @@
 								</a>
 							</div>
 							<div class="contacts__item swiper-slide">
+								<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
 								<a href="#" class="contacts__item--body" title="Link" data-open-text="Open" style="--theme: #12AB3E;">
 									<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 										<span>O</span>
@@ -312,7 +251,8 @@
 								</a>
 							</div>
 							<div class="contacts__item swiper-slide">
-								<a href="#" class="contacts__item--body" title="Link" data-open-text="Open" style="--theme: #005BBB;">
+								<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
+								<a href="#" class="contacts__item--body" title="Link" data-open-text="Open">
 									<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 										<span>O</span>
 										<span>P</span>
@@ -333,7 +273,8 @@
 								</a>
 							</div>
 							<div class="contacts__item swiper-slide">
-								<a href="#" class="contacts__item--body" title="Link" data-open-text="Open" style="--theme: #005BBB;">
+								<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
+								<a href="#" class="contacts__item--body" title="Link" data-open-text="Open">
 									<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 										<span>O</span>
 										<span>P</span>
@@ -359,6 +300,83 @@
 			</section>
 		</main>
 
+		<aside class="aside">
+			<div class="aside__body" data-aos="fade-in">
+				<nav class="aside__nav">
+					<ul>
+						<li>
+							<a href="index.html" class="current" title="Link">
+								<svg width="21" height="20" viewBox="0 0 21 20">
+									<use xlink:href="img/sprites.svg#main"></use>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="portfolio.html" title="Link">
+								<svg width="21" height="20" viewBox="0 0 21 20">
+									<use xlink:href="img/sprites.svg#portfolio"></use>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="contacts.html" title="Link">
+								<svg width="21" height="20" viewBox="0 0 21 20">
+									<use xlink:href="img/sprites.svg#contacts"></use>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="#contacts-popup" class="open-popup" title="Link">
+								<svg width="21" height="20" viewBox="0 0 21 20">
+									<use xlink:href="img/sprites.svg#tel"></use>
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<hr>
+				<div class="aside__social">
+					<ul>
+						<li>
+							<a href="#" title="Link">
+								<picture>
+									<source srcset="img/contacts/social-3.avif" type="image/avif">
+									<source srcset="img/contacts/social-3.webp" type="image/webp">
+									<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
+								</picture>
+							</a>
+						</li>
+						<li>
+							<a href="#" title="Link">
+								<picture>
+									<source srcset="img/contacts/social-3.avif" type="image/avif">
+									<source srcset="img/contacts/social-3.webp" type="image/webp">
+									<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
+								</picture>
+							</a>
+						</li>
+						<li>
+							<a href="#" title="Link">
+								<picture>
+									<source srcset="img/contacts/social-3.avif" type="image/avif">
+									<source srcset="img/contacts/social-3.webp" type="image/webp">
+									<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
+								</picture>
+							</a>
+						</li>
+						<li>
+							<a href="#" title="Link">
+								<picture>
+									<source srcset="img/contacts/social-3.avif" type="image/avif">
+									<source srcset="img/contacts/social-3.webp" type="image/webp">
+									<img src="img/contacts/social-3.png" loading="lazy" width="25" height="25" alt="">
+								</picture>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</aside>
 		<footer class="footer desktop-container">
 			<div class="footer__copy">
 				<svg width="15" height="17" viewBox="0 0 15 17">

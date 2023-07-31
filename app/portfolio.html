@@ -1,5 +1,16 @@
 @@include("html/_header.html")
+	<div class="hero-bg">
+		<div class="hero-bg__item _active"></div>
+	</div>
+	<script>
+		const heroBgItem = document.querySelector('.hero-bg__item');
+		if(heroBgItem && localStorage.getItem('deniel-sonis-theme-bg')) {
+			heroBgItem.style.setProperty('--theme', localStorage.getItem('deniel-sonis-theme-bg'));
+			document.querySelector('html').style.setProperty('--theme-gradient', localStorage.getItem('deniel-sonis-theme-bg'));
+		}
 
+		if(localStorage.getItem('deniel-sonis-theme-accent')) document.querySelector('html').style.setProperty('--theme-accent', localStorage.getItem('deniel-sonis-theme-accent'));
+	</script>
 	<main class="main">
 		<section class="portfolio container">
 			<h2 class="visually-hidden">

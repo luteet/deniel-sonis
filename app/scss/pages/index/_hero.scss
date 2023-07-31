@@ -86,8 +86,9 @@
 				backdrop-filter: blur(1px);
 	
 				svg {
-					fill: var(--accent);
+					fill: var(--theme-accent,var(--accent));
 					width: 9px; height: 14px;
+					transition: fill .3s ease;
 				}
 	
 				&.swiper-button-prev {

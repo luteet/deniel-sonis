@@ -242,6 +242,7 @@ if(document.querySelector('.hero__slider')) {
 			prevEl: ".hero__slider--arrow.swiper-button-prev",
 		},
 		loop: true,
+		initialSlide: localStorage.getItem('deniel-sonis-portfolio-slide-index') ? Number(localStorage.getItem('deniel-sonis-portfolio-slide-index')) : 0,
 		centeredSlides: true,
 		effect: 'coverflow',
 		slidesPerView: 'auto',
@@ -249,7 +250,7 @@ if(document.querySelector('.hero__slider')) {
 			slideChangeTransitionEnd: function () {
 				document.querySelector('.hero__slider').classList.add('drag-active');
 			},
-			activeIndexChange: function () {
+			slideChange: function () {
 				setTimeout(() => {
 					popup.style.setProperty('--theme', heroSlider['slides'][heroSlider.activeIndex].dataset.theme);
 					const image = heroSlider['slides'][heroSlider.activeIndex].querySelector('picture').cloneNode(true, true),
@@ -260,23 +261,32 @@ if(document.querySelector('.hero__slider')) {
 	
 					link.setAttribute('href', heroSlider['slides'][heroSlider.activeIndex].dataset.url);
 
-					html.style.setProperty('--aside-nav-theme', heroSlider['slides'][heroSlider.activeIndex].dataset.themeColor)
+					html.style.setProperty('--theme-accent', heroSlider['slides'][heroSlider.activeIndex].dataset.themeColor)
+					localStorage.setItem('deniel-sonis-theme-accent', heroSlider['slides'][heroSlider.activeIndex].dataset.themeColor);
+					
 					heroName.querySelectorAll('mark').forEach((mark, index) => {
 						mark.classList.remove('active')
 						if(index == heroSlider['slides'][heroSlider.activeIndex].dataset.index) mark.classList.add('active')
 					})
 
 					heroBg.querySelectorAll('.hero-bg__item').forEach((item, index) => {
-						item.classList.remove('active')
-						if(index == heroSlider['slides'][heroSlider.activeIndex].dataset.index) item.classList.add('active')
+						item.classList.remove('_active')
 					})
+
+					//console.log(heroSlider)
+					heroBg.querySelectorAll('.hero-bg__item')[Number(heroSlider['slides'][heroSlider.activeIndex].dataset.index)].classList.add('_active')
+					html.style.setProperty('--theme-gradient', heroSlider['slides'][heroSlider.activeIndex].dataset.themeBg);
+					localStorage.setItem('deniel-sonis-theme-bg', heroSlider['slides'][heroSlider.activeIndex].dataset.themeBg);
+					localStorage.setItem('deniel-sonis-portfolio-slide-index', Number(heroSlider['slides'][heroSlider.activeIndex].dataset.swiperSlideIndex));
 					
-				},500)
+				},400)
 			},
 			init: function () {
 				setTimeout(() => {
 					link.setAttribute('href', heroSlider['slides'][heroSlider.activeIndex].dataset.url);
-					
+
+					heroBg.innerHTML = '';
+
 					for(let index = 0; index < heroSlider['slides'].length; index++) {
 
 						if(heroSlider['slides'][index].dataset.themeBg) {
@@ -292,12 +302,9 @@ if(document.querySelector('.hero__slider')) {
 						heroName.append(clone);
 					}
 
-					
-
 					Array.from(heroSlider['slides']).forEach((slide, index) => {
 						slide.setAttribute('data-index', index);
 					})
-					//console.log(heroSlider['slides'][heroSlider.activeIndex])
 
 					if(heroSlider['slides'].length <= 1) {
 						document.querySelector('.hero__slider').classList.add('drag-active');
@@ -327,6 +334,7 @@ if(document.querySelector('.hero__slider')) {
 		}
 	})
 
+	console.log(Number(localStorage.getItem('deniel-sonis-portfolio-slide-index')))
 	
 }
 

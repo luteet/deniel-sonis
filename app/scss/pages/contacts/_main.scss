@@ -26,8 +26,8 @@
 		@media (prefers-color-scheme: dark) {
 			background: linear-gradient(180deg, rgba(201, 197, 255, 0.1) 0%, rgba(255, 255, 255, 0.00) 100%);
 		}
-		background-blend-mode: soft-light;
-		backdrop-filter: blur(12.5px);
+		/* background-blend-mode: soft-light;
+		backdrop-filter: blur(12.5px); */
 
 		margin-top: 25px;
 
@@ -48,19 +48,18 @@
 		display: flex;
 
 		overflow: visible;
-
-		
 	}
 
 	// .contacts__list
 
 	&__list {
 		display: flex;
-		justify-content: space-between;
+		
 		flex-direction: column;
 		@include _992 {
 			padding-left: 20px;
 			flex-direction: row;
+			justify-content: space-between;
 		}
 
 		min-height: 100%;
@@ -88,15 +87,32 @@
 			&:not(:first-child) {
 				margin-top: 0px;
 			}
+			
+		}
+
+		display: flex;
+		align-items: center;
+
+		position: relative;
+
+		&--decor {
+			position: absolute;
+			left: 50%; top: 50%;
+			width: 150%; height: 70vh;
+			transform: translate(-50%,-50%);
+			z-index: -1;
+			clip-path: polygon(35% 0, 100% 0%, 66% 100%, 0% 100%);
 			&::after {
 				content: '';
 				position: absolute;
-				left: 0; top: 50%;
-				transform: translate(0,-50%) skew(-10deg);
-				width: 100%; height: 70vh;
+				left: 0; top: 0;
+				transform: translate(0%,0);
+				//clip-path: polygon(35% 0, 100% 0%, 66% 100%, 0% 100%);
+				width: 100%; height: 100%;
 				background: linear-gradient(165deg, rgba(82, 82, 82, 0) 10%, rgb(136, 136, 136) 51%, rgba(160, 160, 160, 0) 90%);
 				@media (prefers-color-scheme: dark) {
-					background: linear-gradient(165deg, rgba(0,91,187,0) 10%, rgba(0,91,187,1) 51%, rgba(0,91,187,0) 90%);
+					background: var(--theme-accent, var(--accent-active));
+					-webkit-mask-image: linear-gradient(165deg, rgba(0,91,187,0) 10%, rgba(0,91,187,1) 51%, rgba(0,91,187,0) 90%);
 				}
 				
 				opacity: .5;
@@ -105,12 +121,13 @@
 			&::before {
 				content: '';
 				position: absolute;
-				left: 0; top: 50%;
-				transform: translate(0,-50%) skew(-10deg);
+				left: 50%; top: 50%;
+				transform: translate(-50%,-50%);
 				width: 100%; height: 50%; max-height: 400px;
-				clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-				background: #5081FF;
-				opacity: .6;
+				//clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+				clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+				background: var(--theme-accent, var(--accent-active));
+				opacity: .3;
 				@media (prefers-color-scheme: dark) {
 					background: #2E3035;
 					opacity: 1;
@@ -118,11 +135,6 @@
 				-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 2%);
 			}
 		}
-
-		display: flex;
-		align-items: center;
-
-		position: relative;
 		
 		// .contacts__item--body
 
@@ -136,9 +148,9 @@
 				@media (prefers-color-scheme: dark) {
 					background: #16181d;
 				}
-				transform: skew(-10deg);
+				transform: skew(-8deg);
 				z-index: -1;
-				box-shadow: -4px 0 5px -1px var(--theme), -15px 0 0 0 var(--theme);
+				box-shadow: -4px 0 5px -1px var(--theme, var(--theme-accent)), -15px 0 0 0 var(--theme, var(--theme-accent));
 			}
 		}
 
@@ -150,6 +162,7 @@
 
 			display: flex;
 			align-items: center;
+			
 
 			@include _992 {
 				width: 182px; height: 160px;
@@ -165,17 +178,19 @@
 
 		&--open {
 			position: absolute;
-			left: -14px; top: 0;
-			width: 60%; height: 100%;
+			left: 0; top: 0;
+			width: 70%; height: 100%;
 
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
 
-			padding-top: 10px; padding-right: 15px;
-			transform: translate(-0%,0);
+			padding-top: 10px; padding-right: 25px;
+			transform: translate(0,0);
 
 			transition: transform .3s ease;
+			overflow: hidden;
+  			border-radius: 0.01px;
 
 			z-index: -1;
 
@@ -196,9 +211,9 @@
 				left: 0; top: 0;
 				width: 100%; height: 100%;
 				transform: skew(-10deg);
-				background: var(--theme);
+				background: var(--theme, var(--theme-accent));
 				z-index: -1;
-				clip-path: polygon(0 0, 100% 100%, 100% 0);
+				clip-path: polygon(0 0, 90% 100%, 100% 0);
 			}
 		}
 

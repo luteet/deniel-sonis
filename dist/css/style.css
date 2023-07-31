@@ -14,6 +14,10 @@ progress,sub,sup {
     position: relative
 }
 
+.swiper,ul li {
+    list-style: none
+}
+
 body {
     margin: 0
 }
@@ -213,14 +217,17 @@ summary {
     width: 20px
 }
 
+.splide__arrow,.splide__sr {
+    border: 0;
+    padding: 0;
+    position: absolute
+}
+
 .splide__sr {
     clip: rect(0 0 0 0);
-    border: 0;
     height: 1px;
     margin: -1px;
     overflow: hidden;
-    padding: 0;
-    position: absolute;
     width: 1px
 }
 
@@ -291,15 +298,12 @@ summary {
 .splide__arrow {
     align-items: center;
     background: #ccc;
-    border: 0;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     height: 2em;
     justify-content: center;
     opacity: .7;
-    padding: 0;
-    position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -389,6 +393,12 @@ summary {
 .splide__progress__bar {
     background: #ccc;
     height: 3px
+}
+
+.swiper-slide,.swiper-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative
 }
 
 .splide__slide:focus {
@@ -512,7 +522,6 @@ summary {
     position: relative;
     overflow: hidden;
     overflow: clip;
-    list-style: none;
     padding: 0;
     z-index: 1;
     display: block
@@ -523,9 +532,6 @@ summary {
 }
 
 .swiper-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
     z-index: 1;
     display: flex;
     transition-property: -webkit-transform;
@@ -550,9 +556,6 @@ summary {
 
 .swiper-slide {
     flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-    position: relative;
     transition-property: -webkit-transform;
     transition-property: transform;
     transition-property: transform,-webkit-transform;
@@ -928,10 +931,6 @@ button.swiper-pagination-bullet {
     appearance: none
 }
 
-.swiper-scrollbar,.swiper-scrollbar-drag {
-    border-radius: var(--swiper-scrollbar-border-radius,10px)
-}
-
 .swiper-pagination-bullet:only-child {
     display: none!important
 }
@@ -985,10 +984,6 @@ button.swiper-pagination-bullet {
     transition: .2s transform,.2s right
 }
 
-.header__burger span,[data-aos][data-aos][data-aos-duration="300"],body[data-aos-duration="300"] [data-aos] {
-    transition-duration: .3s
-}
-
 .swiper-fade.swiper-free-mode .swiper-slide,.swiper-free-mode>.swiper-wrapper,[data-aos][data-aos][data-aos-easing=ease-out],body[data-aos-easing=ease-out] [data-aos] {
     transition-timing-function: ease-out
 }
@@ -1039,6 +1034,7 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-scrollbar {
+    border-radius: var(--swiper-scrollbar-border-radius,10px);
     position: relative;
     -ms-touch-action: none;
     background: var(--swiper-scrollbar-bg-color,rgba(0,0,0,.1))
@@ -1073,6 +1069,7 @@ button.swiper-pagination-bullet {
     width: 100%;
     position: relative;
     background: var(--swiper-scrollbar-drag-bg-color,rgba(0,0,0,.5));
+    border-radius: var(--swiper-scrollbar-border-radius,10px);
     left: 0;
     top: 0
 }
@@ -1128,6 +1125,10 @@ button.swiper-pagination-bullet {
     flex-direction: column
 }
 
+.header__burger span,[data-aos][data-aos][data-aos-easing=ease],body[data-aos-easing=ease] [data-aos] {
+    transition-timing-function: ease
+}
+
 .swiper-fade .swiper-slide {
     pointer-events: none;
     transition-property: opacity
@@ -1141,7 +1142,7 @@ button.swiper-pagination-bullet {
     pointer-events: auto
 }
 
-.alert-message-list,.drag-icon,.hero-bg,.hero__avatar--decor,.page-background,.portfolio-page__back::before,.swiper-cube .swiper-slide,.swiper-cube .swiper-slide .swiper-slide,.swiper-flip .swiper-slide,.swiper-flip .swiper-slide .swiper-slide {
+.swiper-cube .swiper-slide,.swiper-cube .swiper-slide .swiper-slide,.swiper-flip .swiper-slide,.swiper-flip .swiper-slide .swiper-slide {
     pointer-events: none
 }
 
@@ -1326,6 +1327,10 @@ button.swiper-pagination-bullet {
 
 [data-aos][data-aos][data-aos-delay="250"].aos-animate,body[data-aos-delay="250"] [data-aos].aos-animate {
     transition-delay: .25s
+}
+
+[data-aos][data-aos][data-aos-duration="300"],body[data-aos-duration="300"] [data-aos] {
+    transition-duration: .3s
 }
 
 [data-aos][data-aos][data-aos-delay="300"],body[data-aos-delay="300"] [data-aos] {
@@ -1988,10 +1993,6 @@ button.swiper-pagination-bullet {
     transition-timing-function: cubic-bezier(.25,.25,.75,.75)
 }
 
-[data-aos][data-aos][data-aos-easing=ease],body[data-aos-easing=ease] [data-aos] {
-    transition-timing-function: ease
-}
-
 [data-aos][data-aos][data-aos-easing=ease-in],body[data-aos-easing=ease-in] [data-aos] {
     transition-timing-function: ease-in
 }
@@ -2231,10 +2232,6 @@ button.swiper-pagination-bullet {
     transform: perspective(2500px) rotateX(0)
 }
 
-.cookies-message,.drag-icon {
-    -webkit-transform: translate(-50%,0)
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -2294,10 +2291,6 @@ a,a:hover,a:visited {
     text-decoration: none
 }
 
-ul li {
-    list-style: none
-}
-
 img {
     vertical-align: top
 }
@@ -2332,7 +2325,8 @@ body {
     display: flex;
     color: #212121;
     padding-right: var(--popup-padding);
-    position: relative
+    position: relative;
+    z-index: 2
 }
 
 body._mob-menu-active,body._popup-active {
@@ -2360,8 +2354,7 @@ a {
 }
 
 section {
-    position: relative;
-    z-index: 2
+    position: relative
 }
 
 .hero-bg,.hero-bg__item {
@@ -2371,30 +2364,49 @@ section {
     width: 100%
 }
 
-body._popup-active .wrapper {
+.aside,.footer,.header,.main {
+    transition: -webkit-filter .3s ease;
+    transition: filter .3s ease;
+    transition: filter .3s ease,-webkit-filter .3s ease
+}
+
+.drag-icon,.hero-bg__item {
+    transition: opacity .3s ease,visibility .3s ease
+}
+
+body._popup-active .aside,body._popup-active .footer,body._popup-active .header,body._popup-active .main {
     -webkit-filter: blur(5px);
     filter: blur(5px)
 }
 
+[data-aos^=fade-in][data-aos^=fade-in].aos-animate {
+    -webkit-transform: none!important;
+    transform: none!important
+}
+
 .hero-bg {
-    height: 100vh;
-    z-index: 1
+    height: var(--wrapper-height);
+    z-index: -1;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(-90deg,#000 30%,transparent 100%)
 }
 
 .hero-bg__item {
     height: 100%;
     background: var(--theme);
-    transition: opacity .3s ease,visibility .3s ease;
     opacity: 0
 }
 
-.hero-bg__item.active {
+.hero-bg__item._active {
     opacity: .15;
     visibility: visible
 }
 
 .wrapper {
+    flex: 1 1 auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
     transition: -webkit-filter .5s ease;
     transition: filter .5s ease;
     transition: filter .5s ease,-webkit-filter .5s ease
@@ -2405,13 +2417,16 @@ body._popup-active .wrapper {
 }
 
 .main {
-    overflow: hidden
+    overflow: hidden;
+    flex: 1 1 auto;
+    z-index: auto
 }
 
 .drag-icon {
     position: absolute;
     left: 50%;
     top: 50%;
+    -webkit-transform: translate(-50%,0);
     transform: translate(-50%,0);
     width: 65px;
     height: 65px;
@@ -2423,16 +2438,16 @@ body._popup-active .wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity .3s ease,visibility .3s ease;
+    pointer-events: none;
     opacity: 1;
     visibility: visible
 }
 
 .page-background,.page-background img {
-    left: 0;
     width: 100%;
     position: absolute;
-    top: 0
+    top: 0;
+    left: 0
 }
 
 .container {
@@ -2457,7 +2472,8 @@ body._popup-active .wrapper {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    z-index: 1
+    pointer-events: none;
+    z-index: -1
 }
 
 .page-background img {
@@ -2475,8 +2491,6 @@ body._popup-active .wrapper {
     background: var(--text-color-rev);
     border: 1px solid var(--text-color-dark);
     background-blend-mode: soft-light;
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
     color: var(--text-color);
     font-size: .9375rem;
     font-weight: 500;
@@ -2507,11 +2521,11 @@ body._popup-active .wrapper {
     position: absolute;
     left: 50%;
     bottom: 70px;
+    -webkit-transform: translate(-50%,0);
     transform: translate(-50%,0);
-    z-index: 2;
+    z-index: 3;
     max-width: 537px;
     width: 100%;
-    background: rgba(20,20,20,.1);
     transition: opacity .5s ease;
     opacity: 1
 }
@@ -2547,9 +2561,6 @@ body._popup-active .wrapper {
 
 .cookies-message__body {
     background: rgba(228,228,228,.418);
-    background-blend-mode: soft-light;
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
     padding: 32px 21px
 }
 
@@ -2588,6 +2599,7 @@ body._popup-active .wrapper {
     right: 0;
     top: calc(var(--height-header) + 50px);
     padding: 0 44px;
+    pointer-events: none;
     z-index: 5
 }
 
@@ -2638,11 +2650,10 @@ body._popup-active .wrapper {
 .alert-message::after,.alert-message::before {
     position: absolute;
     background: rgba(215,25,44,.7);
-    width: 100%;
     height: 100%;
-    top: 0;
-    right: 0;
+    width: 100%;
     z-index: -1;
+    right: 0;
     content: ""
 }
 
@@ -2651,18 +2662,15 @@ body._popup-active .wrapper {
 }
 
 .alert-message::before {
+    top: 0;
     -webkit-clip-path: polygon(81% 0,100% 59%,100% 100%,0 100%,0 0);
     clip-path: polygon(81% 0,100% 59%,100% 100%,0 100%,0 0)
 }
 
 .alert-message::after {
+    top: 0;
     -webkit-clip-path: polygon(100% 0,84% 0,100% 50%);
     clip-path: polygon(100% 0,84% 0,100% 50%)
-}
-
-.header__nav,.popup {
-    position: fixed;
-    visibility: hidden
 }
 
 .alert-message svg {
@@ -2747,6 +2755,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .popup {
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -2756,6 +2765,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     padding: 10px;
     z-index: 100;
     opacity: 0;
+    visibility: hidden;
     transition: opacity .4s ease,visibility .4s ease
 }
 
@@ -2931,14 +2941,36 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .contacts-popup {
-    z-index: 6;
+    z-index: 3;
     background: rgba(0,0,0,0)
 }
 
-.contacts-popup._active-end .contacts-popup__form,.contacts-popup._active-end .contacts-popup__header {
+.contacts-popup._active-end .contacts-popup__header {
     opacity: 1;
     -webkit-backdrop-filter: blur(25px);
     backdrop-filter: blur(25px)
+}
+
+@-moz-document url-prefix() {
+    body._popup-active .aside,body._popup-active .footer,body._popup-active .header,body._popup-active .main {
+        filter: blur(25px)
+    }
+
+    .contacts-popup._active-end .contacts-popup__header {
+        backdrop-filter: none
+    }
+}
+
+.contacts-popup._active-end .contacts-popup__form {
+    opacity: 1;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px)
+}
+
+@-moz-document url-prefix() {
+    .contacts-popup._active-end .contacts-popup__form {
+        backdrop-filter: none
+    }
 }
 
 .contacts-popup__bg {
@@ -2966,6 +2998,14 @@ input:focus::placeholder,textarea:focus::placeholder {
     display: flex;
     align-items: center;
     padding: 15px 20px
+}
+
+@-moz-document url-prefix() {
+    .contacts-popup__header {
+        opacity: 1;
+        transition: none;
+        backdrop-filter: none
+    }
 }
 
 .contacts-popup__name {
@@ -3052,6 +3092,14 @@ input:focus::placeholder,textarea:focus::placeholder {
     padding: 25px 30px
 }
 
+@-moz-document url-prefix() {
+    .contacts-popup__form {
+        opacity: 1;
+        transition: none;
+        backdrop-filter: none
+    }
+}
+
 .contacts-popup__personal-contacts {
     display: flex;
     flex-direction: column
@@ -3080,10 +3128,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     line-height: normal
 }
 
-.contacts-popup__form-block label:not(:first-child),.portfolio__card--footer {
-    margin-top: 30px
-}
-
 .contacts-popup__form-block {
     padding: 25px;
     border-radius: 30px;
@@ -3095,6 +3139,10 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .contacts-popup__form-block label {
     width: 100%
+}
+
+.contacts-popup__form-block label:not(:first-child) {
+    margin-top: 30px
 }
 
 .contacts-popup__form-block input,.contacts-popup__form-block textarea {
@@ -3191,8 +3239,8 @@ input:focus::placeholder,textarea:focus::placeholder {
     left: 0;
     top: 0;
     width: 100%;
-    margin-top: 10px;
     z-index: 3;
+    margin-top: 10px;
     border-top: 1px solid #858894;
     border-bottom: 1px solid #858894;
     padding-top: 10px;
@@ -3215,6 +3263,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .header__nav {
+    position: fixed;
     left: 0;
     top: calc(var(--height-header) + 10px);
     width: 100%;
@@ -3227,12 +3276,8 @@ input:focus::placeholder,textarea:focus::placeholder {
     overflow-y: auto;
     overflow-x: hidden;
     opacity: 0;
+    visibility: hidden;
     transition: opacity .3s ease,visibility .3s ease
-}
-
-.header__nav--list li a,.hero__open-project--link {
-    -webkit-backdrop-filter: blur(5px);
-    font-weight: 500
 }
 
 .header__nav._mob-menu-active {
@@ -3268,9 +3313,11 @@ input:focus::placeholder,textarea:focus::placeholder {
     align-items: center;
     padding: 20px 30px;
     background: rgba(255,255,255,.3);
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     color: #212121;
     font-size: .75rem;
+    font-weight: 500;
     line-height: 100%
 }
 
@@ -3342,6 +3389,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 .header__lang--list,.header__lang::before {
     position: absolute;
     left: 0;
+    border-radius: 0 0 10px 10px;
     transition: opacity .3s ease,visibility .3s ease
 }
 
@@ -3351,10 +3399,9 @@ input:focus::placeholder,textarea:focus::placeholder {
     width: 100%;
     height: calc(100% + var(--list-size));
     background: rgba(255,255,255,.9);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     background-blend-mode: soft-light;
-    border-radius: 0 0 10px 10px;
     z-index: -1;
     opacity: 0;
     visibility: hidden
@@ -3392,7 +3439,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     top: 100%;
     width: 100%;
     padding: 20px 0;
-    border-radius: 0 0 10px 10px;
     border-left: 1px solid #e4e4e4;
     border-right: 1px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
@@ -3468,7 +3514,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     width: 100%;
     height: 3px;
     background: #373b3f;
-    transition-timing-function: ease;
+    transition-duration: .3s;
     transition-property: top,opacity,visibility,-webkit-transform;
     transition-property: transform,top,opacity,visibility;
     transition-property: transform,top,opacity,visibility,-webkit-transform
@@ -3522,11 +3568,16 @@ input:focus::placeholder,textarea:focus::placeholder {
     position: sticky;
     left: 44px;
     top: 0;
-    z-index: 5;
+    z-index: 3;
     width: 60px;
     min-height: calc(var(--svh,1vh) *100);
     max-height: 900px;
     padding: 30px 0 71px;
+    display: none
+}
+
+.aside__body {
+    min-height: 100%;
     display: none;
     align-items: center;
     flex-direction: column
@@ -3551,7 +3602,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     align-items: center;
     justify-content: center;
     width: 60px;
-    fill: var(--aside-nav-theme,var(--accent-active));
+    fill: var(--theme-accent,var(--accent-active));
     position: relative
 }
 
@@ -3569,10 +3620,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     width: 1px;
     height: calc(100% - 10px);
     background: var(--accent-gradient)
-}
-
-.aside__social a,.hero__avatar,.hero__slider-container {
-    position: relative
 }
 
 .aside hr {
@@ -3600,7 +3647,8 @@ input:focus::placeholder,textarea:focus::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px
+    width: 60px;
+    position: relative
 }
 
 .aside__social a img {
@@ -3623,6 +3671,10 @@ input:focus::placeholder,textarea:focus::placeholder {
 .hero__slider {
     width: calc(100vw + 40px);
     margin: 0 -60px
+}
+
+.hero__slider-container {
+    position: relative
 }
 
 .hero__slider--arrow {
@@ -3667,11 +3719,13 @@ input:focus::placeholder,textarea:focus::placeholder {
     min-height: 33px;
     border: 1px solid #212121;
     background-blend-mode: multiply;
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     background: rgba(255,255,255,.8);
     padding: 10px;
     border-radius: 100px;
-    color: #212121
+    color: #212121;
+    font-weight: 500
 }
 
 .hero__name {
@@ -3733,6 +3787,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .hero__avatar {
+    position: relative;
     display: inline-block
 }
 
@@ -3752,7 +3807,8 @@ input:focus::placeholder,textarea:focus::placeholder {
     border: 5px solid #fff;
     -webkit-user-select: none;
     -ms-user-select: none;
-    user-select: none
+    user-select: none;
+    pointer-events: none
 }
 
 .hero__avatar--decor:nth-child(1) {
@@ -3800,6 +3856,14 @@ input:focus::placeholder,textarea:focus::placeholder {
     display: none
 }
 
+.hero__btn,.hero__tag-list li {
+    font-size: 1.794872vw;
+    border-radius: 10px;
+    color: #e4e4e4;
+    background: #212121;
+    font-weight: 700
+}
+
 .hero__tag-list {
     padding-top: 20px;
     display: flex;
@@ -3809,24 +3873,17 @@ input:focus::placeholder,textarea:focus::placeholder {
     margin: -5px -10px
 }
 
-.hero__btn,.hero__tag-list li {
-    padding: 1.7vw 1.5vw 1vw;
-    font-size: 1.794872vw;
-    border-radius: 10px;
-    color: #e4e4e4;
-    background: #212121;
-    font-weight: 700
-}
-
 .hero__tag-list li {
     display: flex;
     margin: 5px;
+    padding: 1.7vw 1.5vw 1vw;
     line-height: 100%
 }
 
 .hero__btn {
     display: inline-flex;
     margin-top: 20px;
+    padding: 1.7vw 1.5vw 1vw;
     line-height: 100%
 }
 
@@ -3896,7 +3953,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .mob-portfolio__header {
-    background: rgba(255,255,255,.9);
+    background: rgba(255,255,255,.6);
     -webkit-backdrop-filter: blur(1px);
     backdrop-filter: blur(1px);
     padding: 10px;
@@ -3971,7 +4028,8 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .portfolio {
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    padding-top: 20px
 }
 
 .portfolio__categories,.portfolio__categories.hide-arrows .portfolio__categories--arrow {
@@ -4049,7 +4107,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .portfolio__category--link._current::before {
-    background: var(--accent-active);
+    background: var(--theme-accent,var(--accent-active));
     opacity: 1
 }
 
@@ -4101,6 +4159,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .portfolio__card--text,.portfolio__card--view {
+    font-size: .75rem;
     font-weight: 400;
     line-height: 120%;
     color: var(--text-color)
@@ -4111,7 +4170,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     align-items: center;
     min-height: 100%;
     padding: 8px 30px;
-    font-size: .75rem;
     border-radius: 30px;
     background: linear-gradient(90deg,rgba(168,168,168,.5) 0,rgba(255,255,255,.5) 100%);
     background-blend-mode: soft-light;
@@ -4136,8 +4194,11 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .portfolio__card--text {
     flex: 1 1 auto;
-    font-size: .75rem;
     padding: 20px
+}
+
+.portfolio__card--footer {
+    margin-top: 30px
 }
 
 .portfolio__card--link {
@@ -4196,9 +4257,13 @@ input:focus::placeholder,textarea:focus::placeholder {
     transition: opacity .3s ease
 }
 
-.contacts__body,.portfolio-page__body {
-    -webkit-backdrop-filter: blur(12.5px);
-    min-height: 100%
+.contacts__body,.not-found__body,.portfolio-page__body {
+    background: linear-gradient(180deg,rgba(179,179,179,.2) 0,rgba(255,255,255,0) 100%)
+}
+
+.contacts-form__body,.portfolio-page__body {
+    min-height: 100%;
+    -webkit-backdrop-filter: blur(12.5px)
 }
 
 .portfolio__loadmore svg {
@@ -4222,7 +4287,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background: linear-gradient(180deg,rgba(179,179,179,.2) 0,rgba(255,255,255,0) 100%);
     background-blend-mode: soft-light;
     backdrop-filter: blur(12.5px);
     z-index: 2;
@@ -4357,6 +4421,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     margin: 15px -20px 0;
     height: 65vw;
     padding-bottom: 35%;
+    z-index: 0;
     -webkit-mask-image: linear-gradient(0deg,rgba(0,0,0,.3) 0,#fff 50%)
 }
 
@@ -4381,7 +4446,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     justify-content: center;
     width: 75px;
     height: 75px;
-    fill: url(#accent-gradient)
+    fill: var(--theme-accent,url(#accent-gradient))
 }
 
 .portfolio-page__min-gallery--arrow.swiper-button-prev {
@@ -4416,6 +4481,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .portfolio-page__gallery-nav {
     display: none;
+    z-index: 0;
     margin: 24px 0 0;
     min-height: 100%
 }
@@ -4426,7 +4492,8 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .portfolio-page__gallery-nav--slide {
     height: max(13vh,100%);
-    position: relative
+    position: relative;
+    z-index: 1
 }
 
 .portfolio-page__gallery-nav--slide img {
@@ -4462,14 +4529,15 @@ input:focus::placeholder,textarea:focus::placeholder {
     width: calc(100% - 24px);
     height: 100%;
     opacity: .1000000015;
-    background: radial-gradient(485.55% 113.27% at 50% 50%,#212121 0,#6d97ff 100%)
+    background: radial-gradient(485.55% 113.27% at 50% 50%,#212121 0,#6d97ff 100%);
+    pointer-events: none;
+    z-index: -1
 }
 
 .portfolio-page__back--btn {
     padding: 12px 41px;
     border-radius: 30px;
     background: #d8e0ff;
-    z-index: 2;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4478,25 +4546,24 @@ input:focus::placeholder,textarea:focus::placeholder {
     line-height: 110%
 }
 
-.contacts__body,.not-found__body {
-    width: 100%;
-    background: linear-gradient(180deg,rgba(179,179,179,.2) 0,rgba(255,255,255,0) 100%)
-}
-
 .portfolio-page__back--btn svg {
     flex: 0 0 17px;
     margin-left: 10px
 }
 
+.contacts__item,.not-found {
+    align-items: center;
+    display: flex
+}
+
 .not-found {
     text-align: center;
     padding-bottom: 90px;
-    display: flex;
-    align-items: center;
     min-height: 100%
 }
 
 .not-found__body {
+    width: 100%;
     margin: 25px 0 0;
     padding: 32px 30px;
     border-radius: 30px
@@ -4541,10 +4608,10 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .contacts__body {
+    min-height: 100%;
+    width: 100%;
     padding: 32px 15px;
     border-radius: 30px 30px 0 0;
-    background-blend-mode: soft-light;
-    backdrop-filter: blur(12.5px);
     margin-top: 25px
 }
 
@@ -4555,7 +4622,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .contacts__list {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     min-height: 100%;
     height: auto
@@ -4564,8 +4630,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 .contacts__item {
     width: auto;
     height: auto;
-    display: flex;
-    align-items: center;
     position: relative
 }
 
@@ -4577,6 +4641,49 @@ input:focus::placeholder,textarea:focus::placeholder {
     border-radius: 10px 0 0
 }
 
+.contacts__item--decor {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150%;
+    height: 70vh;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    -webkit-clip-path: polygon(35% 0,100% 0,66% 100%,0 100%);
+    clip-path: polygon(35% 0,100% 0,66% 100%,0 100%)
+}
+
+.contacts__item--decor::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(165deg,rgba(82,82,82,0) 10%,#888 51%,rgba(160,160,160,0) 90%);
+    opacity: .5
+}
+
+.contacts__item--decor::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 50%;
+    max-height: 400px;
+    -webkit-clip-path: polygon(0 50%,100% 50%,100% 100%,0 100%);
+    clip-path: polygon(0 50%,100% 50%,100% 100%,0 100%);
+    background: var(--theme-accent,var(--accent-active));
+    opacity: .3;
+    -webkit-mask-image: linear-gradient(0deg,rgba(0,0,0,0) 0,#000 2%)
+}
+
 .contacts__item--bg::before {
     content: "";
     position: absolute;
@@ -4585,10 +4692,10 @@ input:focus::placeholder,textarea:focus::placeholder {
     width: 100%;
     height: 100%;
     background: #dbe2ff;
-    -webkit-transform: skew(-10deg);
-    transform: skew(-10deg);
+    -webkit-transform: skew(-8deg);
+    transform: skew(-8deg);
     z-index: -1;
-    box-shadow: -4px 0 5px -1px var(--theme),-15px 0 0 0 var(--theme)
+    box-shadow: -4px 0 5px -1px var(--theme,var(--theme-accent)),-15px 0 0 0 var(--theme,var(--theme-accent))
 }
 
 .contacts__item--body {
@@ -4599,23 +4706,28 @@ input:focus::placeholder,textarea:focus::placeholder {
     align-items: center
 }
 
-.contacts__item--open {
+.contacts__item--open,.contacts__item--open::before {
     position: absolute;
-    left: -14px;
+    left: 0;
     top: 0;
-    width: 60%;
     height: 100%;
+    z-index: -1
+}
+
+.contacts__item--open {
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     padding-top: 10px;
-    padding-right: 15px;
+    padding-right: 25px;
     -webkit-transform: translate(0,0);
     transform: translate(0,0);
     transition: -webkit-transform .3s ease;
     transition: transform .3s ease;
     transition: transform .3s ease,-webkit-transform .3s ease;
-    z-index: -1
+    overflow: hidden;
+    border-radius: .01px
 }
 
 .contacts__item--open span {
@@ -4631,17 +4743,12 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .contacts__item--open::before {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: 100%;
     -webkit-transform: skew(-10deg);
     transform: skew(-10deg);
-    background: var(--theme);
-    z-index: -1;
-    -webkit-clip-path: polygon(0 0,100% 100%,100% 0);
-    clip-path: polygon(0 0,100% 100%,100% 0)
+    background: var(--theme,var(--theme-accent));
+    -webkit-clip-path: polygon(0 0,90% 100%,100% 0);
+    clip-path: polygon(0 0,90% 100%,100% 0)
 }
 
 .contacts__item--icon {
@@ -4672,13 +4779,11 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .contacts-form__body {
-    min-height: 100%;
     width: 100%;
     padding: 0 15px 90px;
-    border-radius: 30px 30px 0 0;
+    border-radius: 20px 20px 0 0;
     background: linear-gradient(180deg,rgba(255,255,255,.2) 0,rgba(255,255,255,0) 100%);
     background-blend-mode: soft-light;
-    -webkit-backdrop-filter: blur(12.5px);
     backdrop-filter: blur(12.5px);
     margin-top: 25px
 }
@@ -4688,9 +4793,9 @@ input:focus::placeholder,textarea:focus::placeholder {
     font-weight: 400;
     line-height: normal;
     margin: 0 -15px;
-    background: rgba(255,255,255,.9);
-    -webkit-backdrop-filter: blur(1px);
-    backdrop-filter: blur(1px);
+    position: relative;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     padding: 10px;
     border-radius: 20px;
     text-align: center
@@ -4781,6 +4886,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .footer {
     width: 100%;
+    position: relative;
     z-index: 2;
     padding-bottom: 30px
 }
@@ -4931,6 +5037,14 @@ input:focus::placeholder,textarea:focus::placeholder {
         grid-column: 2
     }
 
+    .hero-bg,.page-background {
+        height: 100vh
+    }
+
+    .hero,.portfolio,.portfolio-page,.portfolio__block._loaded {
+        overflow-y: auto
+    }
+
     .wrapper {
         display: grid;
         grid-template-columns: 0 auto;
@@ -4938,8 +5052,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     }
 
     .main {
-        grid-row: 2;
-        align-self: self-start
+        grid-row: 2
     }
 
     .header {
@@ -4948,7 +5061,8 @@ input:focus::placeholder,textarea:focus::placeholder {
         border-bottom: 0!important;
         padding-top: 0;
         padding-bottom: 0;
-        margin-top: 30px
+        margin-top: 30px;
+        z-index: 3
     }
 
     .footer {
@@ -4957,13 +5071,14 @@ input:focus::placeholder,textarea:focus::placeholder {
         align-self: self-end
     }
 
+    .aside {
+        grid-column: 1/1;
+        grid-row: 1/3
+    }
+
     .container,.container._min,.desktop-container {
         padding-left: calc(var(--container-padding) + 85px);
         padding-right: var(--container-padding)
-    }
-
-    .page-background {
-        height: 100vh
     }
 
     .visible-on-tablet {
@@ -4997,6 +5112,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 
     .header__wrapper {
         justify-content: stretch;
+        z-index: 4;
         border-top: 1px solid #858894;
         border-bottom: 1px solid #858894
     }
@@ -5018,15 +5134,12 @@ input:focus::placeholder,textarea:focus::placeholder {
         width: auto
     }
 
-    .aside {
-        grid-column: 1/1;
-        grid-row: 1/3;
+    .aside,.aside__body {
         display: flex
     }
 
     .hero {
         margin-top: 0;
-        overflow-y: auto;
         height: calc(100vh - var(--height-header) - 30px)
     }
 
@@ -5061,9 +5174,10 @@ input:focus::placeholder,textarea:focus::placeholder {
     }
 
     .hero__slider--arrow svg {
-        fill: var(--accent);
+        fill: var(--theme-accent,var(--accent));
         width: 9px;
-        height: 14px
+        height: 14px;
+        transition: fill .3s ease
     }
 
     .hero__slider--arrow.swiper-button-prev {
@@ -5146,7 +5260,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     }
 
     .portfolio {
-        overflow-y: auto;
+        padding-top: 0;
         height: calc(100vh - var(--height-header) - 30px);
         padding-bottom: 0
     }
@@ -5204,14 +5318,9 @@ input:focus::placeholder,textarea:focus::placeholder {
         font-size: 1rem
     }
 
-    .portfolio__block._loaded {
-        overflow-y: auto
-    }
-
     .portfolio-page {
         padding-bottom: 11px;
-        height: calc(100vh - var(--height-header) - 90px);
-        overflow-y: auto
+        height: calc(100vh - var(--height-header) - 90px)
     }
 
     .portfolio-page__body {
@@ -5358,7 +5467,8 @@ input:focus::placeholder,textarea:focus::placeholder {
 
     .contacts__list {
         padding-left: 20px;
-        flex-direction: row
+        flex-direction: row;
+        justify-content: space-between
     }
 
     .contacts__item {
@@ -5367,36 +5477,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 
     .contacts__item:not(:first-child) {
         margin-top: 0
-    }
-
-    .contacts__item::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        -webkit-transform: translate(0,-50%) skew(-10deg);
-        transform: translate(0,-50%) skew(-10deg);
-        width: 100%;
-        height: 70vh;
-        background: linear-gradient(165deg,rgba(82,82,82,0) 10%,#888 51%,rgba(160,160,160,0) 90%);
-        opacity: .5
-    }
-
-    .contacts__item::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        -webkit-transform: translate(0,-50%) skew(-10deg);
-        transform: translate(0,-50%) skew(-10deg);
-        width: 100%;
-        height: 50%;
-        max-height: 400px;
-        -webkit-clip-path: polygon(0 50%,100% 50%,100% 100%,0 100%);
-        clip-path: polygon(0 50%,100% 50%,100% 100%,0 100%);
-        background: #5081ff;
-        opacity: .6;
-        -webkit-mask-image: linear-gradient(0deg,rgba(0,0,0,0) 0,#000 2%)
     }
 
     .contacts__item--body {
@@ -5432,6 +5512,18 @@ input:focus::placeholder,textarea:focus::placeholder {
     }
 }
 
+@media (prefers-color-scheme:light)and (min-width:992px) {
+    .cookies-message {
+        background: #fff
+    }
+}
+
+@media (prefers-color-scheme:dark)and (min-width:992px) {
+    .cookies-message {
+        background: rgba(20,20,20,.1)
+    }
+}
+
 @media (min-width:992px)and (prefers-color-scheme:light) {
     .invert-on-light-desktop {
         -webkit-filter: invert(80%);
@@ -5464,15 +5556,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     .portfolio-page__min-gallery--image {
         opacity: .5;
         transition: opacity .3s ease
-    }
-
-    .contacts__item::after {
-        background: linear-gradient(165deg,rgba(0,91,187,0) 10%,#005bbb 51%,rgba(0,91,187,0) 90%)
-    }
-
-    .contacts__item::before {
-        background: #2e3035;
-        opacity: 1
     }
 }
 
@@ -5631,6 +5714,10 @@ input:focus::placeholder,textarea:focus::placeholder {
         display: none
     }
 
+    .cookies-message {
+        background: #141414
+    }
+
     .cookies-message__body {
         background: rgba(228,228,228,.1)
     }
@@ -5720,7 +5807,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     }
 
     .header__lang::before {
-        background: linear-gradient(180.06deg,#181E2A .05%,rgba(25,30,41,.39) 105.88%)
+        background: rgba(0,0,0,0)
     }
 
     .header__lang--target {
@@ -5823,6 +5910,16 @@ input:focus::placeholder,textarea:focus::placeholder {
         background: linear-gradient(180deg,rgba(201,197,255,.1) 0,rgba(255,255,255,0) 100%)
     }
 
+    .contacts__item--decor::after {
+        background: var(--theme-accent,var(--accent-active));
+        -webkit-mask-image: linear-gradient(165deg,rgba(0,91,187,0) 10%,#005bbb 51%,rgba(0,91,187,0) 90%)
+    }
+
+    .contacts__item--decor::before {
+        background: #2e3035;
+        opacity: 1
+    }
+
     .contacts__item--bg::before {
         background: #16181d
     }
@@ -5832,11 +5929,20 @@ input:focus::placeholder,textarea:focus::placeholder {
     }
 
     .contacts-form__body {
-        background: linear-gradient(180deg,rgba(201,197,255,.1) 0,rgba(255,255,255,.01) 100%)
+        background: linear-gradient(180deg,rgba(201,197,255,.1) 0,rgba(255,255,255,0) 100%)
     }
 
-    .contacts-form__header {
-        background: #3a4149
+    .contacts-form__header::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        z-index: -1;
+        background: var(--theme-accent,var(--accent-active));
+        opacity: .05
     }
 
     .contacts-form__block input,.contacts-form__block textarea {
@@ -5855,6 +5961,10 @@ input:focus::placeholder,textarea:focus::placeholder {
 @media (prefers-color-scheme:light) {
     .visible-on-dark {
         display: none
+    }
+
+    .cookies-message {
+        background: #fff
     }
 
     .header__logo--img:nth-child(1) {

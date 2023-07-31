@@ -1,15 +1,27 @@
 @@include("html/_header.html")
+	<div class="hero-bg">
+		<div class="hero-bg__item _active"></div>
+	</div>
+	<script>
+		const heroBgItem = document.querySelector('.hero-bg__item');
+		if(heroBgItem && localStorage.getItem('deniel-sonis-theme-bg')) {
+			heroBgItem.style.setProperty('--theme', localStorage.getItem('deniel-sonis-theme-bg'));
+			document.querySelector('html').style.setProperty('--theme-gradient', localStorage.getItem('deniel-sonis-theme-bg'));
+		}
 
+		if(localStorage.getItem('deniel-sonis-theme-accent')) document.querySelector('html').style.setProperty('--theme-accent', localStorage.getItem('deniel-sonis-theme-accent'));
+	</script>
 	<main class="main">
-		<section class="contacts container">
+		<section class="contacts container" data-aos="fade-in" data-aos-delay="200">
 			<div class="contacts__body">
 				<h1 class="contacts__title visually-hidden">
 					Contacts
 				</h1>
-				<div class="contacts__block swiper" data-aos="fade-in" data-aos-delay="200">
+				<div class="contacts__block swiper">
 					<div class="contacts__list swiper-wrapper">
 						<div class="contacts__item swiper-slide">
-							<a href="#" class="contacts__item--body" title="Email" data-open-text="Open" style="--theme: #005BBB;">
+							<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
+							<a href="#" class="contacts__item--body" title="Email" data-open-text="Open">
 								<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 									<span>O</span>
 									<span>P</span>
@@ -30,6 +42,7 @@
 							</a>
 						</div>
 						<div class="contacts__item swiper-slide">
+							<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
 							<a href="#" class="contacts__item--body" title="Link" data-open-text="Open" style="--theme: #EAB133;">
 								<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 									<span>O</span>
@@ -51,6 +64,7 @@
 							</a>
 						</div>
 						<div class="contacts__item swiper-slide">
+							<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
 							<a href="#" class="contacts__item--body" title="Link" data-open-text="Open" style="--theme: #12AB3E;">
 								<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 									<span>O</span>
@@ -72,7 +86,8 @@
 							</a>
 						</div>
 						<div class="contacts__item swiper-slide">
-							<a href="#" class="contacts__item--body" title="Link" data-open-text="Open" style="--theme: #005BBB;">
+							<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
+							<a href="#" class="contacts__item--body" title="Link" data-open-text="Open">
 								<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 									<span>O</span>
 									<span>P</span>
@@ -93,7 +108,8 @@
 							</a>
 						</div>
 						<div class="contacts__item swiper-slide">
-							<a href="#" class="contacts__item--body" title="Link" data-open-text="Open" style="--theme: #005BBB;">
+							<div class="contacts__item--decor hide-on-tablet" aria-hidden="true"></div>
+							<a href="#" class="contacts__item--body" title="Link" data-open-text="Open">
 								<div class="contacts__item--open hide-on-tablet" aria-hidden="true">
 									<span>O</span>
 									<span>P</span>

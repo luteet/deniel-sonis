@@ -2,17 +2,27 @@
 
 	position: sticky;
 	left: 44px; top: 0;
-	z-index: 5;
+	z-index: 3;
 	width: 60px; min-height: calc(var(--svh,1vh)*100); //height: calc(var(--svh) * 100 - 100px);
 	max-height: 900px;
 	padding: 30px 0 71px;
 
 	display: none;
-	align-items: center;
-	flex-direction: column;
 
 	@include _992 {
 		display: flex;
+	}
+
+	&__body {
+		min-height: 100%;
+
+		display: none;
+		align-items: center;
+		flex-direction: column;
+
+		@include _992 {
+			display: flex;
+		}
 	}
 
 	// .aside__nav
@@ -48,7 +58,7 @@
 			border-right: 1px solid #858894;
 			border-bottom: 1px solid #858894;
 
-			fill: var(--aside-nav-theme, var(--accent-active));
+			fill: var(--theme-accent, var(--accent-active));
 			svg {
 				transition: fill .3s ease;
 			}
